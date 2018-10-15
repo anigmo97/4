@@ -6,102 +6,89 @@
 *
 **/
 
-#define PROYECTO "PRACTICA_2"
+#define PROYECTO "PRACTICA_2 ESTRELLA DE DAVID" // Lo usamos para mostrar un mensaje
 
 #include <iostream>
 #include <gl/freeglut.h>
+#include <Utilidades.h> //podemos cambiar freeglut por Utilidades.h (utilidades incluye freeglut y mas)
 
-//podemos cambiar por Utilidades.h en lugar de freeglut (utilidades tiene mas funcionalidades)
-#include <Utilidades.h>
 
-GLuint indices[8] = { 0,1,2,3,4,5,0,1 };
-GLfloat x;
-GLfloat y;
-GLfloat radio;
-GLint id;
+GLint id; // int en openGL (ajusta su tamaño en bits y int no)
 
+/* este metodo solo se ejecuta una vez, los calculos y las creaciones
+	   de poligonos deberían hacerse aqui en lugar de en display() */
 void init() {
-	// solo se ejecuta una vez
-	glClearColor(1, 1, 1, 1);
-	id = glGenLists(1);
-	glNewList(id, GL_COMPILE);
-	glPushAttrib(GL_CURRENT_BIT);
-	glColor3f(0.0, 0.0, 0.3);
-	glBegin(GL_TRIANGLE_STRIP);
-		glVertex3f((1 * cos(0 * 2 * PI / 3 + PI / 2)), (1 * sin(0 * 2 * PI / 3 + PI / 2)), 0);
-		glVertex3f((0.7 * cos(0 * 2 * PI / 3 + PI / 2)), (0.7 * sin(0 * 2 * PI / 3 + PI / 2)), 0);
-		glVertex3f((1 * cos(1 * 2 * PI / 3 + PI / 2)), (1 * sin(1 * 2 * PI / 3 + PI / 2)), 0);
-		glVertex3f((0.7 * cos(1 * 2 * PI / 3 + PI / 2)), (0.7 * sin(1 * 2 * PI / 3 + PI / 2)), 0);
-		glVertex3f((1 * cos(2 * 2 * PI / 3 + PI / 2)), (1 * sin(2 * 2 * PI / 3 + PI / 2)), 0);
-		glVertex3f((0.7 * cos(2 * 2 * PI / 3 + PI / 2)), (0.7 * sin(2 * 2 * PI / 3 + PI / 2)), 0);
-		glVertex3f((1 * cos(0 * 2 * PI / 3 + PI / 2)), (1 * sin(0 * 2 * PI / 3 + PI / 2)), 0);
-		glVertex3f((0.7 * cos(0 * 2 * PI / 3 + PI / 2)), (0.7 * sin(0 * 2 * PI / 3 + PI / 2)), 0);
-	glEnd();
-	glBegin(GL_TRIANGLE_STRIP);
-	glVertex3f((1 * cos(0 * 2 * PI / 3 + 3*PI / 2)), (1 * sin(0 * 2 * PI / 3 + 3*PI / 2)), 0);
-	glVertex3f((0.7 * cos(0 * 2 * PI / 3 + 3*PI / 2)), (0.7 * sin(0 * 2 * PI / 3 + 3*PI / 2)), 0);
-	glVertex3f((1 * cos(1 * 2 * PI / 3 + 3*PI / 2)), (1 * sin(1 * 2 * PI / 3 + 3*PI / 2)), 0);
-	glVertex3f((0.7 * cos(1 * 2 * PI / 3 + 3*PI / 2)), (0.7 * sin(1 * 2 * PI / 3 + 3*PI / 2)), 0);
-	glVertex3f((1 * cos(2 * 2 * PI / 3 + 3*PI / 2)), (1 * sin(2 * 2 * PI / 3 + 3*PI / 2)), 0);
-	glVertex3f((0.7 * cos(2 * 2 * PI / 3 + 3*PI / 2)), (0.7 * sin(2 * 2 * PI / 3 + 3*PI / 2)), 0);
-	glVertex3f((1 * cos(0 * 2 * PI / 3 + 3*PI / 2)), (1 * sin(0 * 2 * PI / 3 + 3*PI / 2)), 0);
-	glVertex3f((0.7 * cos(0 * 2 * PI / 3 + 3*PI / 2)), (0.7 * sin(0 * 2 * PI / 3 + 3*PI / 2)), 0);
-	glEnd();
-	glPopAttrib();
-	glEndList();
 	
+	id = glGenLists(1); // le pasamos el numero de listas contiguas que queremos y nos retorna un int
+	/* A partir del nombre de la lista de dibujo y el modo de compilacion creamos la lista de dibujo
+	{ GL_COMPILE -> solo instrucciones a compilar  GL_COMPILE_AND_EXECUTE -> insts. a compilar y ejecutar }   */
+	glNewList(id, GL_COMPILE); 
+	glPushAttrib(GL_CURRENT_BIT); // Encapsulamos o apilamos estado actual diciendole que queremos que guarde
+	/* GL_CURRENT_BIT guardaría:
+		Current RGBA color
+		Current color index
+		Current normal vector
+		Current texture coordinates
+		Current raster position
+		GL_CURRENT_RASTER_POSITION_VALID flag
+		RGBA color associated with current raster position
+		Color index associated with current raster position
+		Texture coordinates associated with current raster position
+		GL_EDGE_FLAG flag
+		*/
+	
+	glColor3f(0.0, 0.0, 0.3); // fijamos el color en el que dibujaremos
+	
+	double angulo;
+	/*CREA TRIANGULO HACIA ARRIBA */
+	glBegin(GL_TRIANGLE_STRIP); //iniciamos un triangle_strip
+	for (int i = 0; i < 4; i++) {
+		angulo = i * (2 * PI / 3) + (PI / 2);
+		/* AÑADIMOS VERTICES AL TRIANGLE_STRIP*/
+		glVertex3f(1.0 * cos(angulo), 1.0 * sin(angulo), 0.0); 
+		glVertex3f(0.7 * cos(angulo), 0.7 * sin(angulo), 0.0);
+	}
+	glEnd(); //Terminamos Triangle_Strip
+	/*CREA TRIANGULO HACIA ABAJO*/
+	glBegin(GL_TRIANGLE_STRIP);
+	for (int i = 0; i < 4; i++) {
+		angulo = i * (2 * PI / 3) + (3 * PI / 2);
+		glVertex3f(1.0 * cos(angulo), 1.0 * sin(angulo), 0.0);
+		glVertex3f(0.7 * cos(angulo), 0.7 * sin(angulo), 0.0);
+	}
+	glEnd();
 
-
+	glPopAttrib(); // desapilamos estado 
+	glEndList(); // terminamos lista de dibujo
 }
 
-void display() {
-
-	
-	/*for (auto i = 0; i < 6; i++) {
-		if (i % 2 == 0) { radio = 1; }
-		else { radio = 0.7; }
-		x = (radio* cos(i * 2 * PI / 3 + PI / 2));
-		y = (radio * sin(i * 2 * PI / 3 + PI / 2));
-		glVertex3f(x, y, 0);
-	}*/
-	
-	
-	
-	glClearColor(1, 1, 1, 1);
-	glClear(GL_COLOR_BUFFER_BIT);
-	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-	glCallList(id);
-	glFlush();
-
-	
-	glFlush();
+void display() {	
+	glClearColor(1, 1, 1, 1);   //fijar el color de borrado (fondo)
+	glClear(GL_COLOR_BUFFER_BIT); // Hace el borrado ( pone el fondo )
+	/* ESTABLECER EL MODO DE DIBUJO DE LOS POLIGONOS  (por defecto es GL_FILL en FRONT y BACK asique no hace falta) 
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);    // { GL_LINE | GL_POINT | GL_FILL }     
+	*/  
+	glCallList(id); // llamamos a la lista de dibujo y se ejecutan sus acciones
+	glFlush();    // indicar que han acabado las ordenes de dibujo
 }
 
 void reshape(int w, int h) {
-
+	// NO ES NECESARIA EN ESTA PRACTICA
 }
 
 void main(int argc, char** argv)
 {
-	glutInit(&argc, argv);
-	// Buffers a usar (area de memoria para habilitar)
+	glutInit(&argc, argv); // Reserva Buffers a usar (area de memoria para habilitar)
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB); // solo un buffer y sera de rgb calda celda es rojo verde y azul
-	//Posicionar la ventana de dibujo en la pantalla
-	glutInitWindowPosition(100, 200);
-	// Ajustar tamanyo ventana
-	glutInitWindowSize(400, 400);
-	//Crear la ventana
-	glutCreateWindow(PROYECTO);
-	// Registrar las callbacks (funcion que se dispara cuando sucede algo)
-	// Evento display -> Cuando hay que dibujar
-	// Evento resize/reshape (cambio ventana)
-	glutDisplayFunc(display);
-	glutReshapeFunc(reshape);
+	glutInitWindowPosition(100, 200); //Posicionar la ventana de dibujo en la pantalla
+	glutInitWindowSize(400, 400); // Ajustar tamanyo ventana
+	glutCreateWindow(PROYECTO); //Crear la ventana
 
-	init();
+	/*Registro de las callbacks (funcion que se dispara cuando sucede algo)*/
+	glutDisplayFunc(display); // Evento display -> Cuando hay que dibujar
+	glutReshapeFunc(reshape); // Evento resize/reshape (cambio ventana (dimension etc)) NO NECESARIO
 
-	std::cout << PROYECTO  " en marcha" << std::endl;
-	//Poner en marcha el bucle de atencion a eventos
-	glutMainLoop();//atiende eventos
-
+	init(); // el init hace los calculos y los ajustes antes de dibujar
+	std::cout << PROYECTO  " en marcha" << std::endl; // print por la salida estandar
+	glutMainLoop(); //Poner en marcha el bucle de atencion a eventos
 }
