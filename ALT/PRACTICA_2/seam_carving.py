@@ -70,7 +70,7 @@ def incremental_compute_gradient(grad,img,path):
     # | X | X | X |
 
     for y in range(1,height-1): 
-        for x in range(path[y]-y-1, path[y]+y+1): 
+        for x in range(path[y]-2, path[y]+2): 
             if x > 0 and x < width-1:
                 gx = -img[y-1][x-1]-2*img[y][x-1]-img[y+1][x-1]+img[y-1][x+1]+2*img[y][x+1]+img[y+1][x+1]
                 gy =  img[y-1][x-1]+2*img[y-1][x]+img[y-1][x+1]-img[y+1][x-1]-2*img[y+1][x]-img[y+1][x+1]
@@ -200,6 +200,9 @@ class MyTkApp():
         self.b = tkinter.Button(self.root, text="Begin", command=self.runSeamCarving)
         self.b.pack()
         self.running = True
+        ###CODIGO MODIFICADO
+        self.runSeamCarving()
+        # fin modificado
         self.root.mainloop()
 
     def showImg(self, im):
@@ -283,6 +286,8 @@ class MyTkApp():
             t = time.time() - t0
             print('Final time:', t)
             self.b.config(text="Begin")
+            ####MODIFICADO
+            self.root.destroy()
 
 ######################################################################
 ######################       MAIN PROGRAM       ######################
