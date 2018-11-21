@@ -1,0 +1,724 @@
+Begining the file parsing. . Level
+Start tag: HTML
+Text: 
+
+Start tag: HEAD
+Text: 
+    
+Start tag: TITLE
+Text: Space Invaders
+End tag: TITLE
+Text: 
+    
+Start tag: VERSION
+Text: 1.0.0
+End tag: VERSION
+Text: 
+    
+Start tag: TYPE
+Text: Level
+End tag: TYPE
+Text: 
+    
+Start tag: LEVEL
+Text: 0
+End tag: LEVEL
+Text: 
+
+End tag: HEAD
+Text: 
+
+Start tag: BODY
+Text: 
+    
+Start tag: CHARACTER
+Text: 
+        
+Start tag: NAME
+Text: GAME
+End tag: NAME
+Text: 
+        
+Start tag: RENDERMODE
+Text: 3D
+End tag: RENDERMODE
+Text: 
+        
+Start tag: SIMULATIONMODE
+Text: CONTINUOUS
+End tag: SIMULATIONMODE
+Text:      
+Comments: 
+Text: S-->
+        
+Start tag: BOUNCE
+Text: 1
+End tag: BOUNCE
+Text:                               
+Comments: 
+Text: e-->
+        
+Start tag: TIMERENDER
+Text: 16.67
+End tag: TIMERENDER
+Text:                   
+Comments: 
+Text: e-->
+        
+Start tag: TIMEUPDATE
+Text: 16.67
+End tag: TIMEUPDATE
+Text:                   
+Comments: 
+Text: e-->		
+    
+End tag: CHARACTER
+Text: 
+    
+Comments: 
+Text: n-->
+    
+Start tag: CHARACTER
+Text: 
+        
+Start tag: NAME
+Text: PLAYER
+End tag: NAME
+Text: 
+        
+Start tag: HEALTH
+Text: 20
+End tag: HEALTH
+Text: 
+        
+Start tag: EXPLOSION
+Text: 500
+End tag: EXPLOSION
+Text: 
+        
+Start tag: LIVES
+Text: 3
+End tag: LIVES
+Text: 
+        
+Start tag: MESH
+Text: player.3ds
+End tag: MESH
+Text: 
+    
+End tag: CHARACTER
+Text: 
+
+    
+Start tag: CHARACTER
+Text: 
+        
+Start tag: NAME
+Text: CIRCLESHIP
+End tag: NAME
+Text: 
+        
+Start tag: VELOCITY
+Text: 0.001
+End tag: VELOCITY
+Text: 
+		
+Start tag: RADIO
+Text: 1
+End tag: RADIO
+Text: 
+        
+Start tag: CENTER
+Text:  
+		    
+Start tag: X
+Text: 3.0
+End tag: X
+Text: 
+	    
+End tag: CENTER
+Text: 
+    
+End tag: CHARACTER
+Text: 
+
+    
+Start tag: CHARACTER
+Text: 
+        
+Start tag: NAME
+Text: CIRCLESHIP
+End tag: NAME
+Text: 
+        
+Start tag: VELOCITY
+Text: 0.001
+End tag: VELOCITY
+Text: 
+		
+Start tag: RADIO
+Text: 1
+End tag: RADIO
+Text: 
+        
+Start tag: CENTER
+Text:  
+		    
+Start tag: X
+Text: -3.0
+End tag: X
+Text: 
+	    
+End tag: CENTER
+Text: 
+    
+End tag: CHARACTER
+Text: 
+
+    
+Start tag: CHARACTER
+Text: 
+        
+Start tag: NAME
+Text: SUPPLYSHIP
+End tag: NAME
+Text: 
+        
+Start tag: SPEED
+Text:  
+		    
+Start tag: X
+Text: 0.001
+End tag: X
+Text: 	
+Comments: 
+Text: d-->
+		    
+Start tag: Y
+Text: 0.0
+End tag: Y
+Text: 
+		    
+Start tag: Z
+Text: 0.0
+End tag: Z
+Text: 
+		
+End tag: SPEED
+Text: 
+    
+End tag: CHARACTER
+Text: 
+
+    
+Start tag: CHARACTER
+Text: 
+        
+Start tag: NAME
+Text: SUPPLYSHIP
+End tag: NAME
+Text: 
+        
+Start tag: SPEED
+Text:  
+		    
+Start tag: X
+Text: 0.005
+End tag: X
+Text: 	
+Comments: 
+Text: d-->
+		    
+Start tag: Y
+Text: 0.0
+End tag: Y
+Text: 
+		    
+Start tag: Z
+Text: 0.0
+End tag: Z
+Text: 
+		
+End tag: SPEED
+Text: 
+    
+End tag: CHARACTER
+Text: 
+
+    
+Start tag: CHARACTER
+Text: 
+        
+Start tag: NAME
+Text: NAVY
+End tag: NAME
+Text: 
+		
+Start tag: MOVEDOWN
+Text: 1
+End tag: MOVEDOWN
+Text: 				
+Comments: 
+Text: d-->
+		
+Start tag: SHOOTS
+Text: 1
+End tag: SHOOTS
+Text: 					
+Comments: 
+Text: )-->
+        
+Start tag: NUMLINES
+Text: 5
+End tag: NUMLINES
+Text: 
+        
+Start tag: FROM
+Text:                               
+Comments: 
+Text: r-->
+            
+Start tag: X
+Text: -5.0
+End tag: X
+Text: 
+            
+Start tag: Y
+Text:  0.0
+End tag: Y
+Text: 
+            
+Start tag: Z
+Text:  0.0
+End tag: Z
+Text: 
+        
+End tag: FROM
+Text: 
+        
+Start tag: LINE
+Text: 111111111111111
+End tag: LINE
+Text:              
+Comments: 
+Text:  -->
+        
+Start tag: LINE
+Text: 222222222222222
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 222222222222222
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 333333333333333
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 444444444444444
+End tag: LINE
+Text: 
+        
+Start tag: SPEED
+Text:  
+		    
+Start tag: X
+Text: 0.001
+End tag: X
+Text: 	
+Comments: 
+Text: p-->
+		    
+Start tag: Y
+Text: 0.0
+End tag: Y
+Text: 
+		    
+Start tag: Z
+Text: 0.0
+End tag: Z
+Text: 
+		
+End tag: SPEED
+Text: 
+    
+End tag: CHARACTER
+Text: 
+
+    
+Start tag: CHARACTER
+Text: 
+        
+Start tag: NAME
+Text: BUNKER
+End tag: NAME
+Text: 
+        
+Start tag: TYPE
+Text: USER
+End tag: TYPE
+Text: 
+        
+Start tag: EXPLOSION
+Text: 400
+End tag: EXPLOSION
+Text: 
+        
+Start tag: HEALTH
+Text: 1
+End tag: HEALTH
+Text: 
+        
+Start tag: POSITION
+Text:           
+Comments: 
+Text: s-->
+            
+Start tag: X
+Text: -5.0
+End tag: X
+Text: 
+            
+Start tag: Y
+Text: -4.5
+End tag: Y
+Text: 
+            
+Start tag: Z
+Text:  0.0
+End tag: Z
+Text: 
+        
+End tag: POSITION
+Text: 
+        
+Comments: 
+Text: e-->
+        
+Start tag: LINE
+Text: 00011111111000
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 00111111111100
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 01111111111110
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11111111111111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11111111111111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11111000011111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11110000001111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11100000000111
+End tag: LINE
+Text: 
+    
+End tag: CHARACTER
+Text: 
+    
+Start tag: CHARACTER
+Text: 
+        
+Start tag: NAME
+Text: BUNKER
+End tag: NAME
+Text: 
+        
+Start tag: TYPE
+Text: USER
+End tag: TYPE
+Text:             
+        
+Start tag: EXPLOSION
+Text: 400
+End tag: EXPLOSION
+Text: 
+        
+Start tag: HEALTH
+Text: 1
+End tag: HEALTH
+Text: 
+        
+Start tag: POSITION
+Text:           
+Comments: 
+Text: s-->
+            
+Start tag: X
+Text: -2.0
+End tag: X
+Text: 
+            
+Start tag: Y
+Text: -4.5
+End tag: Y
+Text: 
+            
+Start tag: Z
+Text:  0.0
+End tag: Z
+Text: 
+        
+End tag: POSITION
+Text: 
+        
+Comments: 
+Text: e-->
+        
+Start tag: LINE
+Text: 00111111111100
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 01111111111110
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11111111111111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11111111111111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11111111111111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11111000011111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11110000001111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11100000000111
+End tag: LINE
+Text: 
+    
+End tag: CHARACTER
+Text: 
+    
+Start tag: CHARACTER
+Text: 
+        
+Start tag: NAME
+Text: BUNKER
+End tag: NAME
+Text: 
+        
+Start tag: TYPE
+Text: USER
+End tag: TYPE
+Text: 
+        
+Start tag: EXPLOSION
+Text: 400
+End tag: EXPLOSION
+Text: 
+        
+Start tag: HEALTH
+Text: 1
+End tag: HEALTH
+Text: 
+        
+Start tag: POSITION
+Text:           
+Comments: 
+Text: s-->
+            
+Start tag: X
+Text:  1.0
+End tag: X
+Text: 
+            
+Start tag: Y
+Text: -4.5
+End tag: Y
+Text: 
+            
+Start tag: Z
+Text:  0.0
+End tag: Z
+Text: 
+        
+End tag: POSITION
+Text: 
+        
+Comments: 
+Text: e-->
+        
+Start tag: LINE
+Text: 00111111111100
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 01111111111110
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11111111111111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11111111111111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11111111111111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11111000011111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11110000001111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11100000000111
+End tag: LINE
+Text: 
+    
+End tag: CHARACTER
+Text: 
+    
+Start tag: CHARACTER
+Text: 
+        
+Start tag: NAME
+Text: BUNKER
+End tag: NAME
+Text: 
+        
+Start tag: TYPE
+Text: USER
+End tag: TYPE
+Text: 
+        
+Start tag: EXPLOSION
+Text: 400
+End tag: EXPLOSION
+Text: 
+        
+Start tag: HEALTH
+Text: 1
+End tag: HEALTH
+Text: 
+            
+Start tag: POSITION
+Text:           
+Comments: 
+Text: s-->
+            
+Start tag: X
+Text:  4.0
+End tag: X
+Text: 
+            
+Start tag: Y
+Text: -4.5
+End tag: Y
+Text: 
+            
+Start tag: Z
+Text:  0.0
+End tag: Z
+Text: 
+        
+End tag: POSITION
+Text: 
+        
+Comments: 
+Text: e-->
+        
+Start tag: LINE
+Text: 00111111111100
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 01111111111110
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11111111111111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11111111111111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11111111111111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11111000011111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11110000001111
+End tag: LINE
+Text: 
+        
+Start tag: LINE
+Text: 11100000000111
+End tag: LINE
+Text: 
+    
+End tag: CHARACTER
+Text: 
+
+End tag: BODY
+Text: 
+
+End tag: HTML
