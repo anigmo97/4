@@ -90,6 +90,8 @@ extern CGraphicCard		GraphicsCard;	///<Singleton to manage the application Graph
 extern CBackground		Background;
 extern CPlayer			*defaultPlayer;
 //MODIFICADO PARTE ENTREGA1
+// REVISAR IMPORTANTE SE CAMBIÓ EL ASTERISCO DE LADO
+// SE VOLVIO A CAMBIAR
 extern CSupport*			defaultSupport;
 
 extern CMsgFactory		MsgFactory;
@@ -2287,26 +2289,7 @@ void CSIGame::Loading ()
 		if (NULL != Background.Mesh)
 			Background.Mesh->modelo.Materials->tex.texture[0] = TexturesManager.Textures[Background.IndTexture3D]->Texture.gl_id;
 
-		//MODIFICADO PARTE ENTREGA1
-		std::stringstream ss;
-		ss << "\tType " << defaultSupport->Type << "\n";
-		ss << "\tLives " << defaultSupport->Lives << "\n";
-		ss << "\tHealth " << defaultSupport->Health << "\n";
-		ss << "\tHit_duration " << defaultSupport->Hit_duration << "\n";
-		ss << "\txi " << defaultSupport->xi << "\n";
-		ss << "\txi_speed " << defaultSupport->xi_speed << "\n";
-		ss << "\tyi " << defaultSupport->yi << "\n";
-		ss << "\tyi_speed " << defaultSupport->yi_speed << "\n";
-		ss << "\tzi " << defaultSupport->zi << "\n";
-		ss << "\tzi_speed " << defaultSupport->zi_speed << "\n";
-		ss << "\tAltura " << defaultSupport->altura << "\n";
-		ss << "\tEscudo " << defaultSupport->escudo << "\n";
-		ss << "\tFrozen_time_after_impact " << defaultSupport->frozen_time_after_impact << "\n";
-		ss << "\tPlayer_curation " << defaultSupport->player_curation << "\n";
-		ss << "\tShootSpeed " << defaultSupport->ShootSpeed << "\n";
-		ss << "\tAcceleration " << defaultSupport->acceleration << "\n";
-		CString msg = UGKS_string2CString(ss.str());
-		MessageBox(NULL, msg, L"Resultado parser", MB_OK);
+		
 	}
 	catch(...)
 	{

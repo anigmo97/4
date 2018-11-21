@@ -5,7 +5,7 @@ Prefix IP_: Default HTML Labels for all Parsers
 
 *	@author Ramon Molla, Carlos Martinez Perez
 *	@version 2011-02
-*	@author Ramón Mollá
+*	@author Ramï¿½n Mollï¿½
 *	@version 2015-12
 */
 
@@ -25,7 +25,7 @@ Prefix IP_: Default HTML Labels for all Parsers
 #include <SICharactersFactory.h>
 #include <Navy.h>
 
-//AÑADIDO PARTE ENTREGA1
+//Aï¿½ADIDO PARTE ENTREGA1
 #include <Support.h>
 
 #define CIP_DEBUG	//Class HTML Parser Debug activated
@@ -46,6 +46,7 @@ UGKS_String CIP_Tags[MAXTAGS_IP - MAXTAGS_D] =
 {
 	"ACCELERATION",
 	"AI",
+	"ALTURA", //Aï¿½ADIDO ENTREGA1
 	"ANIMATION2D",
 	"CENTER",
 	"CHARACTER",
@@ -55,8 +56,10 @@ UGKS_String CIP_Tags[MAXTAGS_IP - MAXTAGS_D] =
 	"CONFIG",
 	"DIR",
 	"EPS",							///<Energy Per Shoot
+	"ESCUDO", //Aï¿½ADIDO ENTREGA1
 	"EXPLOSION",
 	"FILE",
+	"FROZEN_TIME_AFTER_IMPACT", //Aï¿½ADIDO PARTE ENTREGA1
 	"GEOMETRY",
 	"HAVE",							///<Recursive definition of a character
 	"HEALTH",						///<How strong is the character. How much has to be hurt before dieing
@@ -68,6 +71,7 @@ UGKS_String CIP_Tags[MAXTAGS_IP - MAXTAGS_D] =
 	"MUSIC",
 	"NAME",
 	"PERIODE",
+	"PLAYER_CURATION", //Aï¿½ADIDO PARTE ENTREGA1
 	"POSITION",
 	"RADIO",
 	"ROTATION",
@@ -129,7 +133,7 @@ CPlayer*		defaultPlayer;
 CShip*			defaultShip;
 CSupplyShip*	defaultSShip;
 CCircleShip*	defaultCShip;
-//AÑADIDO PARTE ENTREGA1
+//Aï¿½ADIDO PARTE ENTREGA1
 CSupport*		defaultSupport;
 
 GCHARS_CharacterType CharType;
@@ -159,7 +163,7 @@ CInitializationParser::CInitializationParser()
 /**   
    @fn void CInitializationParser::Init(UGKS_String FileName)
    @param UGKS_String FileName : file name
-   Number starts at 0 bunkers    
+   Number starts at 0 bunkersï¿½ï¿½ï¿½ 
    Starts the default values ??at the beginning of each level in the game
 */
 void CInitializationParser::Init(UGKS_String FileName)
@@ -213,6 +217,8 @@ void CInitializationParser::InitializeSounds2DefaultChar()
 	defaultCShip->SetSoundsAmount(CN_MAX_SND);
 	defaultCShip->SetSound(SoundsManager.GetSound(CGS_DESCEND_SND), CN_DESCEND_SND);		//Every time the whole navy drops down a little bit
 	defaultCShip->SetSound(SoundsManager.GetSound(CGS_EXPLOSION_SND), CN_EXPLOSION_SND);	//Every time any ship, supplyship, circleship,... burst out
+
+	//ENTREGA FALTARA INICIALIZAR LOS SONIDOS
 }
 
 
@@ -238,8 +244,10 @@ void CInitializationParser::InitializeDefaults()
 	defaultShip		= (CShip*)		CharacterPool->get(CHARS_SHIP, CS_NO_SHIP);
 	defaultSShip	= (CSupplyShip*)CharacterPool->get(CHARS_SUPPLYSHIP, CSS_NO_SUPPLY_SHIP);
 	defaultCShip	= (CCircleShip*)CharacterPool->get(CHARS_CIRCLESHIP, CCS_LEFTTYPE);
-	//AÑADIDO PARTE ENTREGA1
+	//Aï¿½ADIDO PARTE ENTREGA1
 	defaultSupport	= (CSupport*)CharacterPool ->get(CHARS_SUPPORT, UGKOBJM_NO_SUBTYPE);
+	// Aï¿½ADIDO ENTREGA1
+	defaultSupport->muestraAtributos("INICIO INITIALIZATION PARSER");
 
 	//Set the default values for the default characters
 	//DEFAULT CHARACTER
@@ -249,7 +257,7 @@ void CInitializationParser::InitializeDefaults()
 	defaultBrick->Column = 0;
 	defaultBrick->Row    = 0;
 
-	//AÑADIDO PARTE ENTREGA1
+	//Aï¿½ADIDO PARTE ENTREGA1
 	defaultSupport->Init();
 	
 	
@@ -383,6 +391,10 @@ void CInitializationParser::StartTag(CLiteHTMLTag *pTag, DWORD dwAppData, bool &
 			else
 					switch (Tag)
 					{
+					case ALTURA: //AÃ‘ADIDO PARTE ENTREGA1
+					case ESCUDO: //AÃ‘ADIDO PARTE ENTREGA1
+					case FROZEN_TIME_AFTER_IMPACT: //AÃ‘ADIDO PARTE ENTREGA1
+					case PLAYER_CURATION: //AÃ‘ADIDO PARTE ENTREGA1
 					case TYPE_D:
 					case TEXTURE3D:
 					case ANIMATION2D:
@@ -548,6 +560,10 @@ void CInitializationParser::EndTag(CLiteHTMLTag *pTag, DWORD dwAppData, bool &bA
 	StateStackTop = Top();
 	switch(StateStackTop)
 	{
+	 case ALTURA: //Aï¿½ADIDO ENTREGA1
+	 case ESCUDO: //Aï¿½ADIDO ENTREGA1
+	 case FROZEN_TIME_AFTER_IMPACT: //Aï¿½ADIDO ENTREGA1
+	 case PLAYER_CURATION: //Aï¿½ADIDO ENTREGA1
 	 case ACCELERATION:
 	 case AI:
 	 case BODY_D:
@@ -610,6 +626,9 @@ void CInitializationParser::EndTag(CLiteHTMLTag *pTag, DWORD dwAppData, bool &bA
 				case CHARS_SHIP:
 					defaultShip->IndAnimation2D = AnimationsManager.Animations.size()-1;
 						break;
+				case CHARS_SUPPORT: //Aï¿½ADIDO PARTE ENTREGA1
+					defaultSupport->IndAnimation2D = AnimationsManager.Animations.size() - 1;
+					break;
 				case CHARS_SUPPLYSHIP:
 					defaultSShip->IndAnimation2D = AnimationsManager.Animations.size()-1;
 						break;
@@ -677,7 +696,15 @@ CTextureAnimation *aniAux;
 
 	switch(Top())
 	{
-	
+	//Aï¿½ADIDO PARTE ENTREGA1
+	case ALTURA:
+		switch (CharType){
+		case CHARS_SUPPORT: //Aï¿½ADIDO PARTE ENTREGA1
+			defaultSupport->altura = atof(UGKS_string2charstr(rText));
+			break;
+		}
+		break;
+
 	case ACCELERATION:
 		switch (CharType)
 		{
@@ -686,6 +713,9 @@ CTextureAnimation *aniAux;
 			break;
 		case CHARS_SHIP:
 			defaultShip->Acceleration.v[XDIM] = atof(UGKS_string2charstr(rText));
+			break;
+		case CHARS_SUPPORT: //Aï¿½ADIDO PARTE ENTREGA1
+			defaultSupport->Acceleration.v[XDIM] = atof(UGKS_string2charstr(rText));
 			break;
 		}
 		break;
@@ -709,6 +739,14 @@ CTextureAnimation *aniAux;
 		Game->Directories[CG_CONFIG_DIR] = rText;
 		break;
 	case EPS:		//Energy Per Shoot
+		break;
+	case ESCUDO: //Aï¿½ADIDO PARTE ENTREGA1
+		switch (CharType)
+		{
+		case CHARS_SUPPORT:
+			defaultSupport->escudo = atof(UGKS_string2charstr(rText));
+			break;
+		}
 		break;
 	case EXPLOSION:
 			switch (CharType)
@@ -738,12 +776,24 @@ CTextureAnimation *aniAux;
 			case CHARS_SUPPLYSHIP:
  				 defaultSShip->Hit_duration	= atof(UGKS_string2charstr(rText));
 				 break;
+			case CHARS_SUPPORT: //Aï¿½ADIDO PARTE ENTREGA1
+				defaultSupport->Hit_duration = atof(UGKS_string2charstr(rText));
+				break;
+
 			}
 		break;
 	case FILE_IP:
 			if (TEXTURE == SubTop())
 			///Save the texture folder on a game singleton attribute 
 			Game->Directories[CG_TEXTURE_DIR] = rText;
+		break;
+	//Aï¿½ADIDO PARTE ENTREGA1
+	case FROZEN_TIME_AFTER_IMPACT:
+		switch (CharType){
+		case CHARS_SUPPORT:
+			defaultSupport->frozen_time_after_impact = atof(UGKS_string2charstr(rText));
+			break;
+		}
 		break;
 	case GEOMETRY:
 			MeshesManager.SetFilesPath(rText);
@@ -774,6 +824,9 @@ CTextureAnimation *aniAux;
 			case CHARS_SHIP:
 				 defaultShip->Health		= atof(UGKS_string2charstr(rText));
 				 break;
+			 case CHARS_SUPPORT: //AÃ‘ADIDO ENTREGA1
+				 defaultSupport->Health	= atof(UGKS_string2charstr(rText));
+				 break;
 			 case CHARS_SUPPLYSHIP:
  				 defaultSShip->Health	= atof(UGKS_string2charstr(rText));
 				 break;
@@ -786,33 +839,41 @@ CTextureAnimation *aniAux;
 	case LEVEL:
 			Game->Directories[CG_LEVEL_DIR] = rText;
 			break;
-	case LIVES:		//Amount of ships the Player has still before finishing the game
+	case LIVES:	//MODIFICADO ENTREGA1	//Amount of ships the Player has still before finishing the game
+		switch (CharType)
+		{
+		case CHARS_PLAYER:
 			CurrentLives = atoi(UGKS_string2charstr(rText));
 			if (CHAR_HEALTH_INFINITE == CurrentLives)
-					defaultPlayer->Lives = CHAR_HEALTH_INFINITE;
+				defaultPlayer->Lives = CHAR_HEALTH_INFINITE;
 			else if (0 > CurrentLives)
-				{
-					msg  = CIP_ParserMsgs[CIP_MIN_LIVES_NOT_DEF];
-					msg += rText;
-					msg += CIP_ParserMsgs[CIP_LOWER_THAN_MIN];
-					msg += CIP_ParserMsgs[CIP_AMOUNT_ALLOWED];
-					msg += CIP_ParserMsgs[CIP_VALUE_CUT];
-					msg += CIP_ParserMsgs[CIP_MINIMUM];
-					ErrorParser (msg);
-					defaultPlayer->Lives = 1;
-				}
-				else if (SHRT_MAX > CurrentLives) defaultPlayer->Lives = CurrentLives;
-					 else	
-					 {
-						msg  = CIP_ParserMsgs[CIP_MAX_LIVES_NOT_DEF];
-						msg += rText;
-						msg += CIP_ParserMsgs[CIP_LOWER_THAN_MIN];
-						msg += CIP_ParserMsgs[CIP_AMOUNT_ALLOWED];
-						msg += CIP_ParserMsgs[CIP_VALUE_CUT];
-						msg += CIP_ParserMsgs[CIP_MAXIMUM];
-						ErrorParser (msg);
-						defaultPlayer->Lives = SHRT_MAX;
-					}
+			{
+				msg = CIP_ParserMsgs[CIP_MIN_LIVES_NOT_DEF];
+				msg += rText;
+				msg += CIP_ParserMsgs[CIP_LOWER_THAN_MIN];
+				msg += CIP_ParserMsgs[CIP_AMOUNT_ALLOWED];
+				msg += CIP_ParserMsgs[CIP_VALUE_CUT];
+				msg += CIP_ParserMsgs[CIP_MINIMUM];
+				ErrorParser(msg);
+				defaultPlayer->Lives = 1;
+			}
+			else if (SHRT_MAX > CurrentLives) defaultPlayer->Lives = CurrentLives;
+			else
+			{
+				msg = CIP_ParserMsgs[CIP_MAX_LIVES_NOT_DEF];
+				msg += rText;
+				msg += CIP_ParserMsgs[CIP_LOWER_THAN_MIN];
+				msg += CIP_ParserMsgs[CIP_AMOUNT_ALLOWED];
+				msg += CIP_ParserMsgs[CIP_VALUE_CUT];
+				msg += CIP_ParserMsgs[CIP_MAXIMUM];
+				ErrorParser(msg);
+				defaultPlayer->Lives = SHRT_MAX;
+			}
+			break;
+		case CHARS_SUPPORT:
+			defaultSupport->Lives = atoi(UGKS_string2charstr(rText));
+			break;
+		}
 		break;
 	case MESH:
 			switch (CharType)
@@ -843,6 +904,17 @@ CTextureAnimation *aniAux;
 					defaultShip->SetMeshName(defaultShip->Mesh->GetFileName());
 				}
 				 break;
+			// Aï¿½ADIDO PARTE ENTREGA1
+			case CHARS_SUPPORT:
+				if (MeshSemaphore[CHARS_SUPPORT])
+				{
+					MeshSemaphore[CHARS_SUPPORT] = false;
+					int ind = MeshesManager.AddModel(rText);
+					defaultSupport->IndMesh = ind;
+					defaultSupport->Mesh = MeshesManager.GetMesh(ind);
+					defaultSupport->SetMeshName(defaultSupport->Mesh->GetFileName());
+				}
+				break;
 			case CHARS_SUPPLYSHIP:
 				if (MeshSemaphore[CHARS_SUPPLYSHIP])
 				{
@@ -904,6 +976,7 @@ CTextureAnimation *aniAux;
 			case CHARS_BUNKER:
 			case CHARS_PLAYER:
 			case CHARS_SHIP:
+			case CHARS_SUPPORT: // AÃ‘ADIDO ENTREGA1
 			case CHARS_SUPPLYSHIP:
 			case CHARS_LASER:
 			case CHARS_CIRCLESHIP:
@@ -922,6 +995,7 @@ CTextureAnimation *aniAux;
 			case CHARS_BUNKER:
 			case CHARS_PLAYER:
 			case CHARS_SHIP:
+			case CHARS_SUPPORT: // AÃ‘ADIDO ENTREGA1
 			case CHARS_SUPPLYSHIP:
 			case CHARS_CIRCLESHIP:
 			case CHARS_LASER:
@@ -954,6 +1028,15 @@ CTextureAnimation *aniAux;
 					AnimationsManager.Animations[AnimationsManager.Animations.size()-1]->SetPeriod(ms);
 				break;
 			}
+		break;
+	//Aï¿½ADIDO PARTE ENTREGA1
+	case PLAYER_CURATION:
+		switch (CharType)
+		{
+		case CHARS_SUPPORT:
+			defaultSupport->player_curation  = atof(UGKS_string2charstr(rText));
+			break;
+		}
 		break;
 	case RADIO:
 		switch (CharType)
@@ -1006,6 +1089,9 @@ CTextureAnimation *aniAux;
 				case CHARS_SHIP:
 					defaultShip->IndTexture2D = TexturesManager.CreateTexture(rText);
 					 break;
+				case CHARS_SUPPORT: //Aï¿½ADIDO PARTE ENTREGA1
+					defaultSupport->IndTexture2D = TexturesManager.CreateTexture(rText);
+					break;
 				case CHARS_SUPPLYSHIP:
 					defaultSShip->IndTexture2D = TexturesManager.CreateTexture(rText);
 					 break;
@@ -1035,6 +1121,11 @@ CTextureAnimation *aniAux;
 				Texture = TexturesManager.Textures[TextureId];
 				aniAux = AnimationsManager.Animations[AnimationsManager.Animations.size()-1];
 				aniAux->AddPhotogram(Texture);
+				break;
+			//Aï¿½ADIDO ENTREGA1
+			case CHARS_SUPPORT:
+				TextureId = TexturesManager.CreateTexture(rText);
+				AnimationsManager.Animations.back()->AddPhotogram(TexturesManager.Textures[TextureId]);
 				break;
 			case CHARS_SUPPLYSHIP:
 				TextureId = TexturesManager.CreateTexture(rText);
@@ -1068,6 +1159,10 @@ CTextureAnimation *aniAux;
 			case CHARS_SHIP:
 				defaultShip->IndTexture3D = TexturesManager.CreateTexture(rText);
 				 break;
+			//Aï¿½ADIDO PARTE ENTREGA1
+			case CHARS_SUPPORT:
+				defaultSupport->IndTexture3D = TexturesManager.CreateTexture(rText);
+				break;
 			case CHARS_SUPPLYSHIP:
 				defaultSShip->IndTexture3D = TexturesManager.CreateTexture(rText);
 				 break;
@@ -1107,6 +1202,7 @@ CTextureAnimation *aniAux;
 			case CHARS_PLAYER:
 			case CHARS_SHIP:
 			case CHARS_SUPPLYSHIP:
+			case CHARS_SUPPORT: //Aï¿½ADIDO PARTE ENTREGA1
 			case CHARS_CIRCLESHIP:
 			case CHARS_LASER:
 			case CHARS_BACKGROUND:
@@ -1122,9 +1218,18 @@ CTextureAnimation *aniAux;
 		default:;
 		}
 		break;
-	case VELOCITY:
-		defaultCShip->Velocity = atof(UGKS_string2charstr(rText));
-		break;
+	case VELOCITY: // MODIFICAR ENTREGA1
+		switch (CharType)
+			{
+			case CHARS_SHIP:
+				defaultCShip->Velocity = atof(UGKS_string2charstr(rText));
+				break;
+			case CHARS_SUPPORT: //Aï¿½ADIDO PARTE ENTREGA1
+				//defaultSupport->Velocity = atof(UGKS_string2charstr(rText));
+				break;
+			}
+			break;
+		
 	case VERSION_D:	
 			if (rText.compare(Version))
 			{
@@ -1159,6 +1264,8 @@ void CInitializationParser::Comment(const UGKS_String &rComment, DWORD dwAppData
 
 void CInitializationParser::EndParse(DWORD dwAppData, bool bIsAborted)
 {
+	//Aï¿½ADIDO PARTE ENTREGA1
+	defaultSupport->muestraAtributos("FIN INITIALIZATION PARSER");
 	UNUSED_ALWAYS(dwAppData);
 #ifdef CIP_DEBUG	//Class HTML Parser Debug activated
 	WriteLog(LOG_PARSER_END_PARSE, "");
@@ -1192,6 +1299,9 @@ void CInitializationParser::ChangeDimValue(SpaceCoords Dim, double Value)
 		break;
 	case CHARS_SHIP:
 		GenericCharacter = defaultShip;
+		break;
+	case CHARS_SUPPORT: //AÃ‘ADIDO ENTREGA1
+		GenericCharacter = defaultSupport;
 		break;
 	case CHARS_SUPPLYSHIP:
 		GenericCharacter = defaultSShip;
@@ -1243,6 +1353,7 @@ void CInitializationParser::ChangeCenter(CCharacter *Character, SpaceCoords Dim,
 	case CHARS_BUNKER:
 	case CHARS_PLAYER:
 	case CHARS_SHIP:
+	case CHARS_SUPPORT://AÃ‘ADIDO PARTE ENTREGA1
 	case CHARS_SUPPLYSHIP:
 	case CHARS_WEAPON:
 		msg = "Cannot change the Center attribute of the generic character ";
