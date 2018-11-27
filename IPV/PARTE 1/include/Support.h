@@ -11,12 +11,8 @@
 #define CLASS_SUPPORT
 
 #include <Shoot.h>
-#include <Reactor.h>
 #include <Laser.h>
 
-
-#define SUPPORT_Y_2D			SIGLBD_PG_BOTTOM + 8.0f
-#define SUPPORT_Y_3D			SIGLBD_PG_BOTTOM + 8.0f
 
 class CSupport : public CExplosiveChar
 {
@@ -32,12 +28,6 @@ public:
 	short int	Lives;		///<Amount of lives 
 	float       health;
 	float		acceleration;
-	float		xi;			// Posicion en x
-	float		xi_speed;	// Velocidad desplazamiento x
-	float		yi;			// Posicion en y
-	float		yi_speed;	// Velocidad desplazamiento y
-	float		zi;			// Posicion en z
-	float		zi_speed;	// Velocidad desplazamiento z
 	float		ShootSpeed;	///<Initial speed of the current shoot
 
 	//ATRIBUTOS QUE USA SPACE INVADERS POR VERSIONES ANTERIORES PERO NO IMPORTAN
@@ -46,7 +36,7 @@ public:
 	float			Direction;		//-1.0 to the left and +1.0 to the right
 
 	//ATRIBUTOS INFORMACION
-
+	bool mostrarMensajeParser;
 
 	//Methods
 
@@ -59,6 +49,7 @@ public:
 
 	/* MUESTRA MENSAJE CON LOS ATRIBUTOS */
 	void muestraAtributos(string tituloVentana);
+
 };
 
 
