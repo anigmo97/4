@@ -34,6 +34,7 @@ typedef enum {
 typedef enum {
 	ACCELERATION_L = MAXTAGS_D,		//This tag is for management purpouses only. There is no correspondence to any string label in the HTML file
 	ANIMATION2D_L,
+	ALTURA_L, //AÑADIDO PARTE ENTREGA2
 	BOUNCE_L,
 	BUNKER_L,
 	CENTER_L,
@@ -41,9 +42,11 @@ typedef enum {
 	CONFIG_l,
 	DIR_L,
 	EPS_L,		//Energy Per Shoot
+	ESCUDO_L, //AÑADIDO PARTE ENTREGA2
 	EXPLOSION_L,
 	FILE_L,
 	FROM_L,
+	FROZEN_TIME_AFTER_IMPACT_L, //AÑADIDO PARTE ENTREGA2
 	GEOMETRY_L,
 	HAVE_L,		//Recursive definition of a character
 	HEALTH_L,		//How strong is the character. How much has to be hurt before dieing
@@ -59,6 +62,7 @@ typedef enum {
 	NUMSS_L,
 	NUMLINES_L,
 	PERIODE_L,
+	PLAYER_CURATION_L, //AÑADIDO PARTE ENTREGA2
 	POSITION_L,		//Posición específica de un personaje
 	RADIO_L,
 	REGENERATION_L, //Regeneración Sí/No
@@ -83,6 +87,7 @@ typedef enum {
 	TIMESHOOTS_L,
 	TIMEBONUS_L,
 	TIMESUPPLYSHIP_L,
+	TIME_SUPPORT_L, //AÑADIDO PARTE ENTREGA2
 	TIMEUPDATE_L,
 	TYPE_L,
 	UNKNOWN_L,		//This tag is for management purpouses only. There is no correspondence to any string label in the HTML file
