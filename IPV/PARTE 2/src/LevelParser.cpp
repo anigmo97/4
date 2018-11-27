@@ -10,6 +10,7 @@
 #include <LevelParser.h>
 #include <Player.h>
 #include <Navy.h>
+#include <Support.h> //AÑADIDO PARTE ENTREGA2
 
 #include <Ship.h>
 #include <SupplyShip.h>
@@ -52,6 +53,7 @@ CShip*			Ship;
 CSupplyShip*	SShip;
 CCircleShip*	CCShip;
 CPlayer*		Player;
+CSupport*       Support; //AÑADIDO PARTE ENTREGA2
 
 Vector	Pos,
 		CellSize;
@@ -66,6 +68,7 @@ UGKS_String CLeP_Tags[MAXTAGS_L - MAXTAGS_D] =
 {
 	"ACCELERATION",
 	"ANIMATION2D",
+	"ALTURA", //AÑADIDO PARTE ENTREGA2
 	"BOUNCE",
 	"BUNKER",
 	"CENTER",
@@ -73,9 +76,11 @@ UGKS_String CLeP_Tags[MAXTAGS_L - MAXTAGS_D] =
 	"CONFIG",
 	"DIR",
 	"EPS",		//Energy Per Shoot
+	"ESCUDO", //AÑADIDO PARTE ENTREGA2
 	"EXPLOSION",
 	"FILE",
 	"FROM",
+	"FROZEN_TIME_AFTER_IMPACT", //AÑADIDO PARTE ENTREGA2
 	"GEOMETRY",
 	"HAVE",		//Recursive definition of a character
 	"HEALTH",	//How strong is the character. How much has to be hurt before dieing
@@ -91,6 +96,7 @@ UGKS_String CLeP_Tags[MAXTAGS_L - MAXTAGS_D] =
 	"NUMSS",
 	"NUMLINES",
 	"PERIODE",
+	"PLAYER_CURATION", //AÑADIDO PARTE ENTREGA2
 	"POSITION",
 	"RADIO",
 	"REGENERATION",
@@ -115,6 +121,7 @@ UGKS_String CLeP_Tags[MAXTAGS_L - MAXTAGS_D] =
 	"TIMESHOOTS",
 	"TIMEBONUS",
 	"TIMESUPPLYSHIP",
+	"TIMESUPPORT", //AÑADIDO PARTE ENTREGA2
 	"TIMEUPDATE",
 	"TYPE",
 	"UNKNOWN",	//This tag has no matching. It is for management purpouses only. 
@@ -171,6 +178,7 @@ extern CSupplyShip*		defaultSShip;
 extern CCircleShip*		defaultCShip;
 extern CBrick*			defaultBrick;
 extern CBunker*			currentBunker;
+extern CSupport*		defaultSupport; //AÑADIDO PARTE ENTREGA2
 
 void GenerateBunkerLine(const UGKS_String &rText)
 {
@@ -431,6 +439,10 @@ void CLevelReader::StartTag(CLiteHTMLTag *pTag, DWORD dwAppData, bool &bAbort)
 						CLeP_CinematicAction = UGKPHY_SPEED;
 						Push(Tag); //Change to the state specified by the Tag
 						break;
+					case ALTURA_L: //AÑADIDO ENTREGA2
+					case ESCUDO_L: //AÑADIDO ENTREGA2
+					case FROZEN_TIME_AFTER_IMPACT_L://AÑADIDO ENTREGA2
+					case PLAYER_CURATION_L:  //AÑADIDO ENTREGA2
 					case ACCELERATION_L:
 					case ANIMATION2D_L:
 					case BOUNCE_L:
@@ -635,6 +647,7 @@ void CLevelReader::EndTag(CLiteHTMLTag *pTag, DWORD dwAppData, bool &bAbort)
 	switch(Top())
 	{
 	 case ACCELERATION_L:
+	 case ALTURA_L: //AÑADIDO ENTREGA2
 	 case BODY_D:
 	 case BOUNCE_L:
 	 case BUNKER_L:
@@ -642,8 +655,10 @@ void CLevelReader::EndTag(CLiteHTMLTag *pTag, DWORD dwAppData, bool &bAbort)
 	 case CHARACTER_L:
 	 case DIR_L:
 	 case EPS_L:		//Energy Per Shoot
+	 case ESCUDO_L: //AÑADIDO ENTREGA2
 	 case EXPLOSION_L:
 	 case FROM_L:
+	 case FROZEN_TIME_AFTER_IMPACT_L: //AÑADIDO ENTREGA2
 	 case FILE_L:
 	 case GEOMETRY_L:
 	 case HAVE_L:		//Recursive definition of a character
@@ -661,6 +676,7 @@ void CLevelReader::EndTag(CLiteHTMLTag *pTag, DWORD dwAppData, bool &bAbort)
 	 case NUMSS_L:
 	 case NUMLINES_L:
 	 case PERIODE_L:
+	 case PLAYER_CURATION_L: //AÑADIDO ENTREGA2
 	 case POSITION_L:
 	 case RADIO_L:
 	 case REGENERATION_L:
@@ -718,6 +734,12 @@ void CLevelReader::EndTag(CLiteHTMLTag *pTag, DWORD dwAppData, bool &bAbort)
 						else
 							Navy->Ship[i].IndAnimation2D = AnimationsManager.SearchIndOfName(msgAux);*/
 							break;
+					case CHARS_SUPPORT://AÑADIDO PARTE ENTREGA2
+						if (!AnimationExist)
+							Support->IndAnimation2D = AnimationsManager.Animations.size() - 1;
+						else
+							Support->IndAnimation2D = AnimationsManager.SearchIndOfName(msgAux);
+						break;
 					case CHARS_SUPPLYSHIP:
 						if(!AnimationExist)
 							SShip->IndAnimation2D = AnimationsManager.Animations.size()-1;
@@ -799,8 +821,16 @@ if (bAbort) return;
 
 	switch(Top())
 	{
-	case ACCELERATION_L:
-		Players[CurrentPlayer]->Acceleration.v[XDIM] = atof(UGKS_string2charstr(rText));
+	case ACCELERATION_L: //MODIFICADO ENTREGA2
+		switch (CLeP_CharType)
+		{
+		case CHARS_PLAYER:
+			Players[CurrentPlayer]->Acceleration.v[XDIM] = atof(UGKS_string2charstr(rText));
+			break;
+		case CHARS_SUPPORT:
+			Support->Acceleration.v[XDIM] = atof(UGKS_string2charstr(rText));
+			break;
+		}
 		break;
 	case BOUNCE_L:
 		if (atoi(UGKS_string2charstr(rText)))
@@ -825,7 +855,10 @@ if (bAbort) return;
 						 break;
 					 case CHARS_SHIP:						
 						Ship->Hit_duration = f;
-						break;					
+						break;
+					 case CHARS_SUPPORT: //AÑADIDO PARTE ENTREGA2s
+						 Support->Hit_duration = f;
+						 break;
 					 case CHARS_SUPPLYSHIP:
 						 SShip->Hit_duration = f;
 						 break;
@@ -865,6 +898,10 @@ if (bAbort) return;
 						 else if (intAux == CHAR_HEALTH_INFINITE)
 							 Ship->Health = Ship->MaxHealth = CHAR_HEALTH_INFINITE;
 						 break;
+					 case CHARS_SUPPORT: //AÑADIDO PARTE ENTREGA2
+						 if (intAux > 0)
+							 Support->Health = Support->MaxHealth = intAux;
+						 break;
 					 case CHARS_SUPPLYSHIP:
 						 if(intAux>0)
 							SShip->Health = SShip->MaxHealth = intAux;
@@ -900,8 +937,17 @@ if (bAbort) return;
 			break;
 		}
 		break;
-	case LIVES_L:		//Amount of ships the Player has still before finishing the game
-			Players[CurrentPlayer]->Lives =  atoi(UGKS_string2charstr(rText));
+	case LIVES_L:	//MODIFICADO PARTE ENTREGA2	//Amount of ships the Player has still before finishing the game
+		switch (CLeP_CharType)
+		{
+		case CHARS_PLAYER:
+			Players[CurrentPlayer]->Lives = atoi(UGKS_string2charstr(rText));
+			break;
+		case CHARS_SUPPORT:
+			Support->Lives = atoi(UGKS_string2charstr(rText));
+			break;
+
+		}
 		break;
 	case MESH_L:
 			switch (CLeP_CharType)
@@ -959,6 +1005,22 @@ if (bAbort) return;
 						Players[CurrentPlayer]->SetMeshName(defaultPlayer->GetMeshName());
 					}			
 					break;
+				case CHARS_SUPPORT: //AÑADIDO PARTE ENTREGA2
+					msg = rText;
+					if (msg.compare(defaultSupport->GetMeshName())) {		//return 0 if strings are equal
+						int ind = MeshesManager.AddModel(msg);
+						Support->IndMesh = ind;
+						Support->Mesh = MeshesManager.GetMesh(Support->IndMesh);
+						Support->SetMeshName(Support->Mesh->GetFileName());
+					}
+					else
+					{
+						Support->IndMesh = defaultSupport->IndMesh;
+						Support->Mesh = defaultSupport->Mesh;
+						Support->SetMeshName(defaultSupport->GetMeshName());
+					}
+					break;
+
 				case CHARS_LASER:
 					msg = rText;
 					if (msg.compare(defaultPlayer->Laser[CPL_LEFT_LASER]->GetMeshName()))
@@ -1019,6 +1081,7 @@ if (bAbort) return;
 				case CHARS_BUNKER:
 				case CHARS_PLAYER:
 				case CHARS_SHIP:
+				case CHARS_SUPPORT: //AÑADIDO PARTE ENTREGA2
 				case CHARS_SUPPLYSHIP:
 				case CHARS_CIRCLESHIP:
 				case CHARS_LASER:
@@ -1091,6 +1154,12 @@ if (bAbort) return;
 					case CHARS_BACKGROUND:
 						///Not available by the moment
 						break;
+					case CHARS_SUPPORT: //AÑADIDO PARTE ENTREGA2
+						Support = (CSupport*)CharacterPool->get(CHARS_SUPPORT, UGKOBJM_NO_SUBTYPE);
+						*Support = *defaultSupport;
+						SceneGraph.AddCharacter(Support);
+						Support->muestraAtributos("INICIO LEVEL PARSER");
+						break;
 					case CHARS_SUPPLYSHIP:
 						//Create a new node to set inside the scene graph
 						SShip = (CSupplyShip*) CharacterPool->get(CHARS_SUPPLYSHIP, CSS_NO_SUPPLY_SHIP);
@@ -1149,6 +1218,7 @@ if (bAbort) return;
 			case CHARS_BUNKER:
 			case CHARS_PLAYER:
 			case CHARS_SHIP:
+			case CHARS_SUPPORT: // AÑADIDO PARTE ENTREGA2
 			case CHARS_SUPPLYSHIP:
 			case CHARS_CIRCLESHIP:
 			case CHARS_LASER:
@@ -1246,6 +1316,10 @@ if (bAbort) return;
 				if (rText.compare(TexturesManager.Textures[defaultShip->IndTexture2D]->GetFileName()))
 					Ship->IndTexture2D = TexturesManager.CreateTexture(rText);
 				break;
+			case CHARS_SUPPORT: //AÑADIDO PARTE ENTREGA2
+				if (rText.compare(TexturesManager.Textures[defaultSupport->IndTexture2D]->GetFileName()))
+					Support->IndTexture2D = TexturesManager.CreateTexture(rText);
+				break;
 			case CHARS_SUPPLYSHIP:
 				if (rText.compare(TexturesManager.Textures[defaultSShip->IndTexture2D]->GetFileName()))
 					SShip->IndTexture2D = TexturesManager.CreateTexture(rText);
@@ -1274,6 +1348,12 @@ if (bAbort) return;
 				break;
 			case CHARS_SHIP:
 				if (!AnimationExist){
+					TexturesManager.CreateTexture(rText);
+					AnimationsManager.Animations.back()->AddPhotogram(TexturesManager.Textures.back());
+				}
+				break;
+			case CHARS_SUPPORT: //AÑADIDO PARTE ENTREGA2
+				if (!AnimationExist) {
 					TexturesManager.CreateTexture(rText);
 					AnimationsManager.Animations.back()->AddPhotogram(TexturesManager.Textures.back());
 				}
@@ -1314,6 +1394,10 @@ if (bAbort) return;
 					if (rText.compare(TexturesManager.Textures[defaultShip->IndTexture3D]->GetFileName()))
 						Ship->IndTexture3D = TexturesManager.CreateTexture(rText);
 					 break;
+				case CHARS_SUPPORT: //AÑADIDO PARTE ENTREGA2
+					if (rText.compare(TexturesManager.Textures[defaultSupport->IndTexture3D]->GetFileName()))
+						Support->IndTexture3D = TexturesManager.CreateTexture(rText);
+					break;
 				case CHARS_SUPPLYSHIP:
 					if (rText.compare(TexturesManager.Textures[defaultSShip->IndTexture3D]->GetFileName()))
 						SShip->IndTexture3D = TexturesManager.CreateTexture(rText);
@@ -1351,6 +1435,9 @@ if (bAbort) return;
 	case TIMESUPPLYSHIP_L:
 		Game->DefaultUpdPeriod[CHARS_SUPPLYSHIP] = atof(UGKS_string2charstr(rText));
 		break;
+	case TIME_SUPPORT_L: //AÑADIDO PARTE ENTREGA2
+		Game->DefaultUpdPeriod[CHARS_SUPPORT] = atof(UGKS_string2charstr(rText));
+		break;
 	case TIMEUPDATE_L:
 		Game->DefaultUpdPeriod[CHARS_GAME] = atof(UGKS_string2charstr(rText));
 		break;
@@ -1373,6 +1460,7 @@ if (bAbort) return;
 			case CHARS_PLAYER:
 			case CHARS_SHIP:
 			case CHARS_SUPPLYSHIP:
+			case CHARS_SUPPORT: //AÑADIDO PARTE ENTREGA2
 			case CHARS_CIRCLESHIP:
 			case CHARS_LASER:
 			case CHARS_BACKGROUND:
@@ -1415,9 +1503,17 @@ if (bAbort) return;
 			break;
 		}
 		break;
-	case VELOCITY_L:
+	case VELOCITY_L: //MODIFICADO ENTREGA2
+		switch (CLeP_CharType)
+		{
+		case CHARS_SUPPORT:
+			//Support->Velocity = atof(UGKS_string2charstr(rText));
+			break;
+		case CHARS_CIRCLESHIP:
 			CCShip->Velocity = atof(UGKS_string2charstr(rText));
 			break;
+		}
+		break;
 	case VERSION_L:	if (rText.compare( Game->GetVersion()))
 					{
 						VersionMismatch(rText);
@@ -1447,6 +1543,9 @@ if (bAbort) return;
 					 break;
 				 case CHARS_PLAYER:
 					 Players[CurrentPlayer]->MoveTo(f, Players[CurrentPlayer]->Position.v[YDIM], Players[CurrentPlayer]->Position.v[ZDIM]);
+					 break;
+				 case CHARS_SUPPORT: //AÑADIDO PARTE ENTREGA2
+					 Support->MoveTo(f, Support->Position.v[YDIM], Support->Position.v[ZDIM]);
 					 break;
 				 case CHARS_SUPPLYSHIP:
 					 SShip->MoveTo(f, SShip->Position.v[YDIM], SShip->Position.v[ZDIM]);
@@ -1487,6 +1586,9 @@ if (bAbort) return;
 				 case CHARS_SHIP:
 					 Ship->Speed.v[XDIM] = f;
 					 break;
+				 case CHARS_SUPPORT: // AÑADIDO PARTE ENTREGA2
+					 Support->Speed.v[XDIM] = f;
+					 break;
 				 case CHARS_WEAPON:
 				 default:;
 				}	//switch CLeP_CharType
@@ -1524,6 +1626,9 @@ if (bAbort) return;
 				 case CHARS_PLAYER:
 					 Players[CurrentPlayer]->MoveTo(Players[CurrentPlayer]->Position.v[XDIM], f, Players[CurrentPlayer]->Position.v[ZDIM]);
 					 break;
+				 case CHARS_SUPPORT: //AÑADIDO PARTE ENTREGA2
+					 Support->MoveTo(Support->Position.v[XDIM], f, Support->Position.v[ZDIM]);
+					 break;
 				 case CHARS_SUPPLYSHIP:
 					 SShip->MoveTo(SShip->Position.v[XDIM], f, SShip->Position.v[ZDIM]);
 					 break;
@@ -1560,6 +1665,9 @@ if (bAbort) return;
 				 case CHARS_BONUS:
 				 case CHARS_SHIP:
 					 Ship->Speed.v[YDIM] = f;
+					 break;
+				 case CHARS_SUPPORT: //AÑADIDO PARTE ENTREGA2
+					 Support->Speed.v[YDIM] = f;
 					 break;
 				 case CHARS_WEAPON:
 				 default:;
@@ -1606,6 +1714,9 @@ if (bAbort) return;
 				 case CHARS_SHIP:
 					 Ship->MoveTo(Ship->Position.v[XDIM], Ship->Position.v[YDIM], f);
 					 break;
+				 case CHARS_SUPPORT://AÑADIDO PARTE ENTREGA2
+					 Support->MoveTo(Support->Position.v[XDIM], Support->Position.v[YDIM], f);
+					 break;
 				 case CHARS_WEAPON:
 				 default:;
 				}	//switch CLeP_CharType
@@ -1631,6 +1742,9 @@ if (bAbort) return;
 					 break;
 				 case CHARS_SUPPLYSHIP:
 					 SShip->Speed.v[ZDIM] = f;
+					 break;
+				 case CHARS_SUPPORT: //AÑADIDO PARTE ENTREGA2
+					 Support->Speed.v[ZDIM] = f;
 					 break;
 				 case CHARS_BONUS:
 				 case CHARS_SHIP:
@@ -1679,6 +1793,7 @@ void CLevelReader::Comment(const UGKS_String &rComment, DWORD dwAppData, bool &b
 */
 void CLevelReader::EndParse(DWORD dwAppData, bool bIsAborted)
 {
+	Support->muestraAtributos("FIN LEVEL PARSER");
 	UNUSED_ALWAYS(dwAppData);
 
 	#ifdef CLeP_DEBUG	//Class HTML Parser Debug activated
