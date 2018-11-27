@@ -24,36 +24,7 @@
         <MESH>player.3ds</MESH>
     </CHARACTER>
 
-    <!-- AÑADIDO PARTE ENTREGA2-->
-    <CHARACTER>
-        <NAME>SUPPORT</NAME>
-        <ALTURA>2</ALTURA>
-        <ESCUDO>0</ESCUDO>
-        <FROZEN_TIME_AFTER_IMPACT>900</FROZEN_TIME_AFTER_IMPACT>  <!-- Miliseconds of freezing -->
-        <PLAYER_CURATION>0</PLAYER_CURATION>
-        <HEALTH>20</HEALTH>
-        <LIVES>3</LIVES>
-        <MESH>player.3ds</MESH>
-        <TEXTURE2D>player.bmp</TEXTURE2D>
-        <ACCELERATION>0.0001</ACCELERATION>
-        <EXPLOSION>800</EXPLOSION> <!-- hit duration -->
-        <SPEED>
-            <X>0.01</X>
-            <Y>0.0</Y>
-            <Z>0.0</Z>
-        </SPEED>
-        <!--<POSITION>
-            <X>9</X>
-            <Y>9</Y>
-            <Z>9</Z>
-        </POSITION>
-        <ROTATION>
-            <X>10</X>
-            <Y>10</Y>
-            <Z>160</Z>
-        </ROTATION>-->
-        <VELOCITY>0.001</VELOCITY>
-    </CHARACTER>
+   
 
     <CHARACTER>
         <NAME>CIRCLESHIP</NAME>
@@ -197,6 +168,41 @@
         <LINE>11111000011111</LINE>
         <LINE>11110000001111</LINE>
         <LINE>11100000000111</LINE>
+    </CHARACTER>
+
+     <!-- AÑADIDO PARTE ENTREGA2-->
+    <!-- SI NO LO AÑADES EL ULTIMO DEL HTML NO FUNCIONA-->
+    <CHARACTER>
+        <NAME>SUPPORT</NAME>
+        <!-- ATRIBUTOS CREADOS-->
+        <ALTURA>2</ALTURA>
+        <ESCUDO>0</ESCUDO>
+        <FROZEN_TIME_AFTER_IMPACT>900</FROZEN_TIME_AFTER_IMPACT>  <!-- Miliseconds of freezing -->
+        <PLAYER_CURATION>0</PLAYER_CURATION>
+        <!-- OTROS ATRIBUTOS-->
+        <HEALTH>20</HEALTH>
+        <LIVES>3</LIVES>
+        <ACCELERATION>0.0001</ACCELERATION>
+        <VELOCITY>0.001</VELOCITY>
+        <EXPLOSION>800</EXPLOSION> <!-- hit duration -->
+        <SPEED>
+            <X>0.01</X>
+            <Y>0.01</Y>
+            <Z>0.01</Z>
+        </SPEED>
+        <!-- ATRIBUTOS RENDER/VISUALIZACION-->
+        <MESH>support-dañado-congelado.3ds</MESH>
+        <TEXTURE2D>support.bmp</TEXTURE2D>
+        <POSITION>
+            <X>0</X>
+            <Y>-5</Y>
+            <Z>0</Z>
+        </POSITION>
+        <ROTATION>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>-1</Z>
+        </ROTATION>
     </CHARACTER>
 </BODY>
 </HTML>
