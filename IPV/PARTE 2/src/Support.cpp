@@ -1,4 +1,4 @@
-//FICHERO MODIFICADO-E1
+﻿//FICHERO MODIFICADO-E1
 //FICHERO MODIFICADO-E2
 // GUARDADO EN .\src\
 
@@ -54,7 +54,7 @@ bool CSupport::Init(){
 	ShootSpeed = SUPPORT_DEFAULT_SHOOTSPEED;
 	acceleration = SUPPORT_DEFAULT_ACCELERATION;
 
-	mostrarMensajeParser = true; // TRUE -> MOSTRAR VENTANAS PARSEADORES
+	mostrarMensajeParser = false; // TRUE -> MOSTRAR VENTANAS PARSEADORES
 
 	ResetScale(); //HEREDADO DE LA CLASE UGKCharacter pone la escala a (1,1,1)
 
