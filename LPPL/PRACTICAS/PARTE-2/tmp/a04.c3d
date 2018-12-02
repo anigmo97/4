@@ -1,0 +1,49 @@
+  0 EASIG     i:   1  ,          ,  p:   2  
+  1 EASIG     p:   2  ,          ,  p:   3  
+  2 EIGUAL    p:   3  ,  i:   0  ,  e:  48  
+  3 GOTOS             ,          ,  e:   5  
+  4 GOTOS             ,          ,  e:   2  
+  5 EREAD             ,          ,  p:   0  
+  6 EREAD             ,          ,  p:   1  
+  7 EASIG     i:   1  ,          ,  p:   4  
+  8 EDIST     p:   0  ,  p:   1  ,  e:  10  
+  9 EASIG     i:   0  ,          ,  p:   4  
+ 10 EASIG     i:   0  ,          ,  p:   5  
+ 11 EASIG     i:   1  ,          ,  p:   6  
+ 12 EDIST     p:   0  ,  p:   5  ,  e:  14  
+ 13 EASIG     i:   0  ,          ,  p:   6  
+ 14 EASIG     i:   1  ,          ,  p:   7  
+ 15 EIGUAL    p:   4  ,  i:   1  ,  e:  18  
+ 16 EIGUAL    p:   6  ,  i:   1  ,  e:  18  
+ 17 EASIG     i:   0  ,          ,  p:   7  
+ 18 EIGUAL    p:   7  ,  i:   0  ,  e:  47  
+ 19 EASIG     i:   0  ,          ,  p:   8  
+ 20 EASIG     i:   1  ,          ,  p:   9  
+ 21 EIGUAL    p:   0  ,  p:   8  ,  e:  23  
+ 22 EASIG     i:   0  ,          ,  p:   9  
+ 23 EASIG     i:   1  ,          ,  p:  10  
+ 24 EIGUAL    p:  10  ,  i:   0  ,  e:  46  
+ 25 EASIG     i:   1  ,          ,  p:  11  
+ 26 EIGUAL    p:   0  ,  p:   1  ,  e:  28  
+ 27 EASIG     i:   0  ,          ,  p:  11  
+ 28 EASIG     i:   0  ,          ,  p:  12  
+ 29 EASIG     i:   1  ,          ,  p:  13  
+ 30 EMAY      p:   0  ,  p:  12  ,  e:  32  
+ 31 EASIG     i:   0  ,          ,  p:  13  
+ 32 EASIG     i:   1  ,          ,  p:  14  
+ 33 EIGUAL    p:  11  ,  i:   0  ,  e:  36  
+ 34 EIGUAL    p:  13  ,  i:   0  ,  e:  36  
+ 35 GOTOS             ,          ,  e:  37  
+ 36 EASIG     i:   0  ,          ,  p:  14  
+ 37 EIGUAL    p:  14  ,  i:   0  ,  e:  43  
+ 38 EASIG     i:   1  ,          ,  p:  15  
+ 39 EWRITE            ,          ,  p:  15  
+ 40 EASIG     i:   0  ,          ,  p:  16  
+ 41 EASIG     p:  16  ,          ,  p:   3  
+ 42 GOTOS             ,          ,  e:  45  
+ 43 EASIG     i:   0  ,          ,  p:  17  
+ 44 EWRITE            ,          ,  p:  17  
+ 45 GOTOS             ,          ,  e:  46  
+ 46 GOTOS             ,          ,  e:  47  
+ 47 GOTOS             ,          ,  e:   4  
+ 48 FIN               ,          ,          
