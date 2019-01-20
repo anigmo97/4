@@ -1,0 +1,8 @@
+Se deben dar permisos de ejecución con:
+	chmod +x script.sh
+
+Para ejecutarlo basco con:
+	./script file_name_without_extension
+
+El script hace make , ejecuta la maquina virtual con el fichero que le pasemos (lo busca en tmp)
+y abre el fichero que estamos ejecutando.
