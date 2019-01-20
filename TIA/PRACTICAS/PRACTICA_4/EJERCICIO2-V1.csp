@@ -1,0 +1,188 @@
+##### c4q.csp = four queens problem
+
+##########################################
+###   Requetes, Parametres et Options  ###
+##########################################
+ 
+\alpha = 0.1;
+\filtering : f ;
+\search : rfla ,
+	all_solutions
+#	best_solution
+#	first_solutions 5
+;
+\static_labeling_order  :
+	smallest_domain 
+#	greatest_degree
+#	smallest_domain_by_degree
+;
+#\dynamic_labeling_order :
+#	smallest_domain 
+#	smallest_domain_by_degree
+#
+;
+\verbose : 
+	display_solutions 
+#	display_csp
+#	display_filtering
+#	display_search
+#       display_intervals
+;
+
+##############################
+###       VARIABLES        ###
+############################## 
+
+
+\vi : M1,M2,M3,M4,M5 0..3; ; #MODELOS
+
+##############################
+###      CONTRAINTES       ###
+############################## 
+
+#-------------------------------------------------------------------------------------------------------------------------
+#-----El modelo M1 tiene acabado “Pintura”, si y solamente si, el modelo M2 tiene el acabado “Pintura” o “Metalizado”. ---
+#---------------------------------------------------------------------------------------------------------------------P1F1
+
+\doc : doc1a #   | M1(P) --> M2(P) or M2(M) |     =====     not(M1(P)) or M2(P) or M2(M) 
+                          
+\ci : ci1a1 , M1 != 1;    
+\or                       
+\ci : ci1a2 , M2 = 1;
+\or
+\ci : ci1a3 , M2 = 2;
+
+; #fin doc---------------
+
+
+\doc : doc1b   # | M2(P) or M2(M) --> M1(P) |     =====     (not(M2(P)) or M1(P) ) and *doc1c*
+
+\ci : ci1b1 , M2 != 1;
+\or
+\ci : ci1b2 , M1 = 1;
+
+; # fin doc--------------
+
+\doc : doc1c   # | M2(P) or M2(M) --> M1(P) |     =====     *doc1b* and ( not(M2(M)) or M1(P) )
+
+\ci : ci1c1 , M2 != 2;
+\or
+\ci : ci1c2 , M1 = 1;
+
+; # fin doc---------------
+
+#-------------------------------------------------------------------------------------------------------------------------
+#-----El modelo M1 tiene acabado de “Metalizado” si y solamente si, obien el modelo M3 tiene el acabado base -------------
+#-----(sin “Pintura” ni “Metalizado”) o bien el modelo M5 tiene el acabado completo “Pintura” y “Metalizado”.-------------
+#---------------------------------------------------------------------------------------------------------------------P1F2
+
+\doc : doc2a #2 | M1(M) --> M3(B) or M5(C) |     =====     not(M1(M)) or M3(B) or M5(C) 
+
+\ci : ci2a1 , M1 != 2;
+\or
+\ci : ci2a2 , M3 = 0;
+\or
+\ci : ci2a3 , M5 = 3;
+
+; #fin doc -------------------------
+
+
+\doc : doc1c  # | M3(B) or M5(C) --> M1(M) |     =====     (not(M3(B)) or M1(M) ) and *doc2c*
+
+\ci : ci1c1 , M3 != 0;
+\or
+\ci : ci1c2 , M1 = 2;
+
+; # fin doc -------------------------
+
+\doc : doc2c  # | M3(B) or M5(C) --> M1(M) |     =====     *doc2b* and ( not(M5(C)) or M1(M) )
+
+\ci : ci1c1 , M5 != 3;
+\or
+\ci : ci1c2 , M1 = 2;
+
+; # fin doc -------------------------
+
+#-------------------------------------------------------------------------------------------------------------------------
+#-----El modelo M2 tiene acabado “Pintura” si y solamente si, o el modelo M1 tiene acabado“Pintura” o “Metalizado”,------- 
+#-----o bien, el Modelo M5 tiene el acabado base (sin “Pintura” ni “Metalizado”).-----------------------------------------
+#---------------------------------------------------------------------------------------------------------------------P2F1
+
+\doc : doc3a #3 | M2(P) --> M1(P) or M1(M) or M5(B) |     =====     not(M2(P)) or M1(P) or M1(M) or M5(B)
+
+\ci : ci1a1 , M2 != 1;
+\or
+\ci : ci1a2 , M1 = 1;
+\or
+\ci : ci1a2 , M1 = 2;
+\or
+\ci : ci1a3 , M5 = 0;
+
+; #fin doc---------------
+
+
+
+\doc : doc3b # | M1(P) or M1(M) or M5(B) --> M2(P) |     =====     (not(M1(P)) or M2(P) ) and *doc3c* and *doc3d*
+
+\ci : ci1c1 , M1 != 1;
+\or
+\ci : ci1c2 , M2 = 1;
+
+; # fin doc -------------------------
+
+
+\doc : doc3c # | M1(P) or M1(M) or M5(B) --> M2(P) |     =====     *doc3b* and ( not(M1(M)) or M2(P) ) and *doc3d*
+
+\ci : ci1c1 , M1 != 2;
+\or
+\ci : ci1c2 , M2 = 1;
+
+; # fin doc -------------------------
+
+\doc : doc3d # | M1(P) or M1(M) or M5(B) --> M2(P) |     =====     *doc3b* and *doc3c* and ( not(M5(B)) or M2(P) )
+
+\ci : ci1c1 , M5 != 0;
+\or
+\ci : ci1c2 , M2 = 1;
+
+; # fin doc -------------------------
+
+#--------------------------------------------------------------------
+#-------------------------------------------------------------------- P2F2
+#--------------------------------------------------------------------
+
+
+#-------------------------------------------------------------------------------------------------------------------------
+#-----El modelo M2 tiene acabado “Metalizado” si y solamente si el modelo M3 o el M4 tienen el acabado completo----------- 
+#---------------------------------------------------------------------------------------------------------------------P2F2
+
+\doc : doc4a #4 | M2(M) --> M3(C) or M4(C) |     =====     not(M2(M)) or M3(C) or M4(C)
+
+\ci : ci2a1 , M2 != 2;
+\or
+\ci : ci2a2 , M3 = 3;
+\or
+\ci : ci2a3 , M4 = 3;
+
+; #fin doc -------------------------
+
+
+\doc : doc4b # | M3(C) or M4(C) --> M2(M) |     =====     ( not(M3(C)) or M2(M) ) and *doc4c*
+
+\ci : ci1c1 , M3 != 3;
+\or
+\ci : ci1c2 , M2 = 2;
+
+; # fin doc -------------------------
+
+\doc : doc4c # | M3(C) or M4(C) --> M2(M) |     =====     *doc4b* and ( not(M4(C)) or M2(M) )
+
+\ci : ci1c1 , M4 != 3;
+\or
+\ci : ci1c2 , M2 = 2;
+
+; # fin doc -------------------------
+
+\ci : rd8 , M1 <> M2 ;
+\cim : ct1 , <>(M3,M4,M5);
+

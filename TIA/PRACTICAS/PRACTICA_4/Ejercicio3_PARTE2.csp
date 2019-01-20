@@ -1,0 +1,72 @@
+##### c4q.csp = four queens problem
+
+##########################################
+###   Requetes, Parametres et Options  ###
+##########################################
+ 
+\alpha = 0.8;
+\filtering : f ;
+\search : rfla ,
+	all_solutions
+#	best_solution
+#	first_solutions 5
+;
+\static_labeling_order  :
+	smallest_domain 
+#	greatest_degree
+#	smallest_domain_by_degree
+;
+#\dynamic_labeling_order :
+#	smallest_domain 
+#	smallest_domain_by_degree
+#
+;
+\verbose : 
+	display_solutions 
+#	display_csp
+#	display_filtering
+#	display_search
+#       display_intervals
+;
+
+##############################
+###       VARIABLES        ###
+############################## 
+
+\vi : H 1..5 ;
+\vi : P 2..5 ;
+\vi : Q,C,B 0..3;
+
+\ce : C1    H,
+			5  (1.0)
+			4  (0.9)
+			3  (0.8)
+			2  (0.4)
+			1  (0.2);
+			
+\ce : C2    Q ,
+            3   (0.8)
+            2   (0.4)
+			1   (0.2)
+			0   (0.1);
+
+\ce : C3    C ,
+            3   (0.8)
+            2   (0.4)
+			1   (0.2)
+			0   (0.1);
+			
+\ce : C4    B ,
+            3   (0.8)
+            2   (0.4)
+			1   (0.2)
+			0   (0.1);
+			
+##############################
+###      CONTRAINTES       ###
+############################## 
+
+
+\ci : rd1 , (Q + C + B) >= 1 ;
+\ci : rd2 , P = H + 1;
+
