@@ -1,0 +1,1275 @@
+Begining the file parsing. . Initialization.
+Comments: 
+Text: 1-->
+upv
+
+Start tag: HTML
+Text: 
+
+Start tag: HEAD
+Text: 
+    
+Start tag: TITLE
+Text: Space Invaders
+End tag: TITLE
+Text: 
+    
+Start tag: VERSION
+Text: 1.0.0
+End tag: VERSION
+Text: 
+    
+Start tag: TYPE
+Text: Initialization
+End tag: TYPE
+Text: 
+
+End tag: HEAD
+Text: 
+
+
+Start tag: BODY
+Text: 
+    
+Start tag: DIR
+Text: 
+        
+Start tag: AI
+Text: AI
+End tag: AI
+Text:                     
+Comments: 
+Text: m-->
+        
+Start tag: MUSIC
+Text: sounds
+End tag: MUSIC
+Text: 
+        
+Start tag: SOUNDS
+Text: sounds
+End tag: SOUNDS
+Text: 
+        
+Start tag: TEXTURE
+Text: images
+End tag: TEXTURE
+Text:       
+Comments: 
+Text:  -->
+        
+Start tag: GEOMETRY
+Text: models
+End tag: GEOMETRY
+Text:     
+Comments: 
+Text:  -->
+        
+Start tag: LANGUAGE
+Text: Languages
+End tag: LANGUAGE
+Text: 
+        
+Start tag: LEVEL
+Text: Levels
+End tag: LEVEL
+Text: 
+        
+Start tag: CONFIG
+Text: Configuration
+End tag: CONFIG
+Text: 
+    
+End tag: DIR
+Text: 
+
+    
+Start tag: CHARACTER
+Text: 
+        
+Comments: 
+Text:  -->
+        
+Start tag: NAME
+Text: PLAYER
+End tag: NAME
+Text: 
+        
+Start tag: EXPLOSION
+Text: 500
+End tag: EXPLOSION
+Text: 	    
+Comments: 
+Text:  -->
+        
+Start tag: HEALTH
+Text: 20
+End tag: HEALTH
+Text: 
+        
+Start tag: LIVES
+Text: 3
+End tag: LIVES
+Text: 
+        
+Start tag: MESH
+Text: player.3ds
+End tag: MESH
+Text: 
+        
+Start tag: TEXTURE2D
+Text: player.bmp
+End tag: TEXTURE2D
+Text: 
+        
+Start tag: ACCELERATION
+Text: 0.0001
+End tag: ACCELERATION
+Text: 
+        
+Start tag: SPEED
+Text: 
+            
+Start tag: X
+Text: 0.01
+End tag: X
+Text: 	
+Comments: 
+Text: d-->
+            
+Start tag: Y
+Text: 0.0
+End tag: Y
+Text: 
+            
+Start tag: Z
+Text: 0.0
+End tag: Z
+Text: 
+        
+End tag: SPEED
+Text: 
+    
+End tag: CHARACTER
+Text: 
+
+    
+Comments: 
+Text: 1-->
+    
+Start tag: CHARACTER
+Text: 
+        
+Start tag: NAME
+Text: SUPPORT
+End tag: NAME
+Text: 
+        
+Comments: 
+Text: S-->
+        
+Start tag: ALTURA
+Text: 2
+End tag: ALTURA
+Text: 
+        
+Start tag: ESCUDO
+Text: 0
+End tag: ESCUDO
+Text: 
+        
+Start tag: FROZEN_TIME_AFTER_IMPACT
+Text: 900
+End tag: FROZEN_TIME_AFTER_IMPACT
+Text:   
+Comments: 
+Text:  -->
+        
+Start tag: PLAYER_CURATION
+Text: 0
+End tag: PLAYER_CURATION
+Text: 
+        
+Comments: 
+Text: S-->
+        
+Start tag: HEALTH
+Text: 20
+End tag: HEALTH
+Text: 
+        
+Start tag: LIVES
+Text: 3
+End tag: LIVES
+Text: 
+        
+Start tag: ACCELERATION
+Text: 0.0001
+End tag: ACCELERATION
+Text: 
+        
+Start tag: EXPLOSION
+Text: 800
+End tag: EXPLOSION
+Text:  
+Comments: 
+Text:  -->
+        
+Start tag: SPEED
+Text: 
+            
+Start tag: X
+Text: 0.01
+End tag: X
+Text: 
+            
+Start tag: Y
+Text: 0.0
+End tag: Y
+Text: 
+            
+Start tag: Z
+Text: 0.0
+End tag: Z
+Text: 
+        
+End tag: SPEED
+Text: 
+        
+Start tag: VELOCITY
+Text: 0.001
+End tag: VELOCITY
+Text: 
+        
+Comments: 
+Text: N-->
+        
+Start tag: MESH
+Text: support-amarillo.3ds
+End tag: MESH
+Text: 
+        
+Start tag: TEXTURE2D
+Text: support.bmp
+End tag: TEXTURE2D
+Text: 
+    
+End tag: CHARACTER
+Text: 
+
+
+    
+Start tag: CHARACTER
+Text: 
+        
+Start tag: NAME
+Text: LASER
+End tag: NAME
+Text:               
+Comments: 
+Text:  -->
+        
+Start tag: EXPLOSION
+Text: 500
+End tag: EXPLOSION
+Text: 	    
+Comments: 
+Text:  -->
+        
+Start tag: HEALTH
+Text: 20
+End tag: HEALTH
+Text: 
+        
+Start tag: MESH
+Text: fighter_laser.3ds
+End tag: MESH
+Text: 
+    
+End tag: CHARACTER
+Text: 
+
+    
+Start tag: CHARACTER
+Text: 
+        
+Start tag: NAME
+Text: BACKGROUND
+End tag: NAME
+Text:        
+Comments: 
+Text:  -->
+        
+Start tag: MESH
+Text: sphere_ogive.3ds
+End tag: MESH
+Text: 
+        
+Start tag: TEXTURE3D
+Text: sphere_o.bmp
+End tag: TEXTURE3D
+Text: 
+    
+End tag: CHARACTER
+Text: 
+
+    
+Start tag: CHARACTER
+Text: 
+        
+Start tag: NAME
+Text: SUPPLYSHIP
+End tag: NAME
+Text: 
+        
+Start tag: EXPLOSION
+Text: 500
+End tag: EXPLOSION
+Text: 	    
+Comments: 
+Text:  -->
+        
+Start tag: HEALTH
+Text: 500
+End tag: HEALTH
+Text: 
+        
+Start tag: MESH
+Text: supplyship.3ds
+End tag: MESH
+Text: 
+        
+Start tag: TEXTURE3D
+Text: f02_512.bmp
+End tag: TEXTURE3D
+Text: 
+        
+Start tag: TEXTURE2D
+Text: supplyship.bmp
+End tag: TEXTURE2D
+Text: 
+        
+Start tag: SPEED
+Text: 
+            
+Start tag: X
+Text: 0.002
+End tag: X
+Text: 	
+Comments: 
+Text: d-->
+            
+Start tag: Y
+Text: 0.0
+End tag: Y
+Text: 
+            
+Start tag: Z
+Text: 0.0
+End tag: Z
+Text: 
+        
+End tag: SPEED
+Text: 
+    
+End tag: CHARACTER
+Text: 
+
+    
+Start tag: CHARACTER
+Text: 
+        
+Start tag: NAME
+Text: CIRCLESHIP
+End tag: NAME
+Text: 
+        
+Start tag: MESH
+Text: supplyship.3ds
+End tag: MESH
+Text: 
+        
+Start tag: TEXTURE3D
+Text: circleship.bmp
+End tag: TEXTURE3D
+Text: 
+        
+Start tag: TEXTURE2D
+Text: circleship.bmp
+End tag: TEXTURE2D
+Text: 
+        
+Start tag: VELOCITY
+Text: 0.001
+End tag: VELOCITY
+Text: 
+        
+Start tag: RADIO
+Text: 1
+End tag: RADIO
+Text: 
+        
+Start tag: CENTER
+Text: 
+            
+Start tag: X
+Text: 0.002
+End tag: X
+Text: 
+            
+Start tag: Y
+Text: 0.0
+End tag: Y
+Text: 
+            
+Start tag: Z
+Text: 0.0
+End tag: Z
+Text: 
+        
+End tag: CENTER
+Text: 
+    
+End tag: CHARACTER
+Text: 
+
+    
+Start tag: CHARACTER
+Text: 
+        
+Start tag: NAME
+Text: BUNKER
+End tag: NAME
+Text: 
+        
+Start tag: TEXTURE2D
+Text: PIXEL_VERT.BMP
+End tag: TEXTURE2D
+Text: 
+        
+Start tag: TEXTURE3D
+Text: PIXEL_VERT3D.BMP
+End tag: TEXTURE3D
+Text: 
+    
+End tag: CHARACTER
+Text: 
+
+    
+Start tag: CHARACTER
+Text: 
+        
+Start tag: NAME
+Text: SHIP
+End tag: NAME
+Text: 
+        
+Start tag: EXPLOSION
+Text: 1000
+End tag: EXPLOSION
+Text: 	    
+Comments: 
+Text:  -->
+        
+Start tag: HEALTH
+Text: 25
+End tag: HEALTH
+Text: 
+        
+Start tag: MESH
+Text: ship.3ds
+End tag: MESH
+Text: 
+        
+Start tag: TEXTURE3D
+Text: s02_5121.bmp
+End tag: TEXTURE3D
+Text: 
+        
+Start tag: ANIMATION2D
+Text: 
+            
+Comments: 
+Text:  -->
+            
+Start tag: NAME
+Text: ANI2SHIP_HIGH
+End tag: NAME
+Text: 
+            
+Start tag: TYPE
+Text: ANITYPE_CICLIC
+End tag: TYPE
+Text:              
+Comments: 
+Text:  -->
+            
+Start tag: PERIODE
+Text: 1000
+End tag: PERIODE
+Text:                  
+Comments: 
+Text:  -->
+            
+Start tag: TEXTURE2D
+Text: ship1.bmp
+End tag: TEXTURE2D
+Text: 
+            
+Start tag: TEXTURE2D
+Text: ship1_b.bmp
+End tag: TEXTURE2D
+Text: 
+        
+End tag: ANIMATION2D
+Text: 
+        
+Start tag: ANIMATION2D
+Text: 
+            
+Comments: 
+Text:  -->
+            
+Start tag: NAME
+Text: ANI2SHIP_MIDDLE
+End tag: NAME
+Text: 
+            
+Start tag: TYPE
+Text: ANITYPE_CICLIC
+End tag: TYPE
+Text:              
+Comments: 
+Text:  -->
+            
+Start tag: PERIODE
+Text: 100
+End tag: PERIODE
+Text:                  
+Comments: 
+Text:  -->
+            
+Start tag: TEXTURE2D
+Text: ship2.bmp
+End tag: TEXTURE2D
+Text: 
+            
+Start tag: TEXTURE2D
+Text: ship2_b.bmp
+End tag: TEXTURE2D
+Text: 
+        
+End tag: ANIMATION2D
+Text: 
+        
+Start tag: ANIMATION2D
+Text: 
+            
+Comments: 
+Text:  -->
+            
+Start tag: NAME
+Text: ANI2SHIP_LOW
+End tag: NAME
+Text: 
+            
+Start tag: TYPE
+Text: ANITYPE_CICLIC
+End tag: TYPE
+Text:              
+Comments: 
+Text:  -->
+            
+Start tag: PERIODE
+Text: 500
+End tag: PERIODE
+Text:                  
+Comments: 
+Text:  -->
+            
+Start tag: TEXTURE2D
+Text: ship3.bmp
+End tag: TEXTURE2D
+Text: 
+            
+Start tag: TEXTURE2D
+Text: ship3_b.bmp
+End tag: TEXTURE2D
+Text: 
+        
+End tag: ANIMATION2D
+Text: 
+        
+Start tag: SPEED
+Text: 
+            
+Start tag: X
+Text: 0.001
+End tag: X
+Text: 	
+Comments: 
+Text: d-->
+            
+Start tag: Y
+Text: 0.0
+End tag: Y
+Text: 
+            
+Start tag: Z
+Text: 0.0
+End tag: Z
+Text: 
+        
+End tag: SPEED
+Text: 
+    
+End tag: CHARACTER
+Text: 
+
+    
+Start tag: SCORES
+Text: 
+        
+Start tag: NAME
+Text: PEPE
+End tag: NAME
+Text: 
+        
+Start tag: SCORE
+Text: 15236
+End tag: SCORE
+Text: 
+        
+Start tag: NAME
+Text: LUIS
+End tag: NAME
+Text: 
+        
+Start tag: SCORE
+Text: 10256
+End tag: SCORE
+Text: 
+        
+Start tag: NAME
+Text: ANDRES
+End tag: NAME
+Text: 
+        
+Start tag: SCORE
+Text: 9874
+End tag: SCORE
+Text: 
+        
+Start tag: NAME
+Text: JUANA
+End tag: NAME
+Text: 
+        
+Start tag: SCORE
+Text: 39874
+End tag: SCORE
+Text: 
+    
+End tag: SCORES
+Text: 
+
+    
+Comments: 
+Text:  -->
+
+    
+Start tag: COLLISION_TABLE
+Text: 
+
+        
+Comments: 
+Text: 1-->
+        
+Start tag: COLLISION
+Text: 
+            
+Start tag: CHARACTER
+Text: SUPPORT
+End tag: CHARACTER
+Text: 
+            
+Start tag: COLLIDED
+Text: BONUS
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: BRICK
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: BUNKER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: CIRCLESHIP
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: LASER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: REACTOR
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SHIP
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SHOOT
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SUPPLYSHIP
+End tag: COLLIDED
+Text: 
+        
+End tag: COLLISION
+Text: 
+
+
+        
+Start tag: COLLISION
+Text: 
+            
+Start tag: CHARACTER
+Text: BONUS
+End tag: CHARACTER
+Text: 
+            
+Start tag: COLLIDED
+Text: LASER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: PLAYER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: REACTOR
+End tag: COLLIDED
+Text: 
+            
+Comments: 
+Text: 1-->
+            
+Start tag: COLLIDED
+Text: SUPPORT
+End tag: COLLIDED
+Text: 
+        
+End tag: COLLISION
+Text: 
+
+        
+Start tag: COLLISION
+Text: 
+            
+Start tag: CHARACTER
+Text: BRICK
+End tag: CHARACTER
+Text: 
+            
+Start tag: COLLIDED
+Text: CIRCLESHIP
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: LASER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: PLAYER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: REACTOR
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SHOOT
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SHIP
+End tag: COLLIDED
+Text: 
+            
+Comments: 
+Text: 1-->
+            
+Start tag: COLLIDED
+Text: SUPPORT
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SUPPLYSHIP
+End tag: COLLIDED
+Text: 
+        
+End tag: COLLISION
+Text: 
+
+        
+Start tag: COLLISION
+Text: 
+            
+Start tag: CHARACTER
+Text: BUNKER
+End tag: CHARACTER
+Text: 
+            
+Start tag: COLLIDED
+Text: CIRCLESHIP
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: LASER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: PLAYER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: REACTOR
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SHOOT
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SHIP
+End tag: COLLIDED
+Text: 
+            
+Comments: 
+Text: 1-->
+            
+Start tag: COLLIDED
+Text: SUPPORT
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SUPPLYSHIP
+End tag: COLLIDED
+Text: 
+        
+End tag: COLLISION
+Text: 
+
+        
+Start tag: COLLISION
+Text: 
+            
+Start tag: CHARACTER
+Text: CIRCLESHIP
+End tag: CHARACTER
+Text: 
+            
+Start tag: COLLIDED
+Text: BRICK
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: BUNKER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: LASER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: PLAYER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: REACTOR
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SHOOT
+End tag: COLLIDED
+Text: 
+            
+Comments: 
+Text: 1-->
+            
+Start tag: COLLIDED
+Text: SUPPORT
+End tag: COLLIDED
+Text: 
+        
+End tag: COLLISION
+Text: 
+
+        
+Start tag: COLLISION
+Text: 
+            
+Start tag: CHARACTER
+Text: LASER
+End tag: CHARACTER
+Text: 
+            
+Start tag: COLLIDED
+Text: BONUS
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: BRICK
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: BUNKER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: CIRCLESHIP
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: PLAYER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: REACTOR
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SHIP
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SHOOT
+End tag: COLLIDED
+Text: 
+            
+Comments: 
+Text: 1-->
+            
+Start tag: COLLIDED
+Text: SUPPORT
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SUPPLYSHIP
+End tag: COLLIDED
+Text: 
+        
+End tag: COLLISION
+Text: 
+
+        
+Start tag: COLLISION
+Text: 
+            
+Start tag: CHARACTER
+Text: PLAYER
+End tag: CHARACTER
+Text: 
+            
+Start tag: COLLIDED
+Text: BONUS
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: BRICK
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: BUNKER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: CIRCLESHIP
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SHIP
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SHOOT
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SUPPLYSHIP
+End tag: COLLIDED
+Text: 
+        
+End tag: COLLISION
+Text: 
+
+        
+Start tag: COLLISION
+Text: 
+            
+Start tag: CHARACTER
+Text: REACTOR
+End tag: CHARACTER
+Text: 
+            
+Start tag: COLLIDED
+Text: BONUS
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: BRICK
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: BUNKER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: CIRCLESHIP
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SHIP
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SHOOT
+End tag: COLLIDED
+Text: 
+            
+Comments: 
+Text: 1-->
+            
+Start tag: COLLIDED
+Text: SUPPORT
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SUPPLYSHIP
+End tag: COLLIDED
+Text: 
+        
+End tag: COLLISION
+Text: 
+
+        
+Start tag: COLLISION
+Text: 
+            
+Start tag: CHARACTER
+Text: SHOOT
+End tag: CHARACTER
+Text: 
+            
+Start tag: COLLIDED
+Text: BRICK
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: BUNKER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: CIRCLESHIP
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: LASER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: PLAYER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: REACTOR
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SHIP
+End tag: COLLIDED
+Text: 
+            
+Comments: 
+Text: 1-->
+            
+Start tag: COLLIDED
+Text: SUPPORT
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SUPPLYSHIP
+End tag: COLLIDED
+Text: 
+        
+End tag: COLLISION
+Text: 
+
+        
+Start tag: COLLISION
+Text: 
+            
+Start tag: CHARACTER
+Text: SHIP
+End tag: CHARACTER
+Text: 
+            
+Start tag: COLLIDED
+Text: BRICK
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: BUNKER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: LASER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: PLAYER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: REACTOR
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SHOOT
+End tag: COLLIDED
+Text: 
+            
+Comments: 
+Text: 1-->
+            
+Start tag: COLLIDED
+Text: SUPPORT
+End tag: COLLIDED
+Text: 
+        
+End tag: COLLISION
+Text: 
+
+        
+Start tag: COLLISION
+Text: 
+            
+Start tag: CHARACTER
+Text: SUPPLYSHIP
+End tag: CHARACTER
+Text: 
+            
+Start tag: COLLIDED
+Text: BRICK
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: BUNKER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: LASER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: PLAYER
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: REACTOR
+End tag: COLLIDED
+Text: 
+            
+Start tag: COLLIDED
+Text: SHOOT
+End tag: COLLIDED
+Text: 
+            
+Comments: 
+Text: 1-->
+            
+Start tag: COLLIDED
+Text: SUPPORT
+End tag: COLLIDED
+Text: 
+        
+End tag: COLLISION
+Text: 
+    
+End tag: COLLISION_TABLE
+Text: 
+
+
+End tag: BODY
+Text: 
+
+End tag: HTML
+Ending the file parsing.
