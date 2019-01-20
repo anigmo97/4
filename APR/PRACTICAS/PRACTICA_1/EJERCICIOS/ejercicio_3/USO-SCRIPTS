@@ -1,0 +1,18 @@
+SCRIPTS EJERCICIO 3
+
+GENERAR CSV:
+
+./EJ3-GENERA-CSV.m <data_filename> <labels_filename> <int start_C> <int end_C> <increment_C>
+EJEMPLO : ./EJ3-GENERA-CSV.m mini/tr.dat mini/trlabels.dat 0.01 100 10
+FICHERO GENERADO = EJ3-RESULTADOS.csv
+
+
+
+
+
+
+
+GENERAR GRAFICO:
+
+./EJ3-GENERA-GRAFICO.m <data_filename> <labels_filename> <int C>
+EJEMPLO : ./EJ3-GENERA-GRAFICO.m mini/tr.dat mini/trlabels.dat 1000

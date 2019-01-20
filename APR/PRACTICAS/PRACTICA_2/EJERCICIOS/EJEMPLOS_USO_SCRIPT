@@ -1,0 +1,5 @@
+PARA CAMBIAR LOS INCREMENTOS DE ITERACIONS O GAUSIANAS MODIFICAR CODIGO
+
+Ejemplo ejecucion:
+./analisisMixturaGausianas.sh ./data/spam/tr.dat
+./data/spam/trlabels.dat ./data/spam/ts.dat ./data/spam/tslabels.dat p3

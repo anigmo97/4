@@ -1,0 +1,18 @@
+SCRIPTS EJERCICIO 5
+
+GENERAR CSV:
+
+./EJ5-CREA-CSV.m 
+FICHERO GENERADO = EJ5-RESULTADOS.csv
+
+
+
+
+
+
+
+
+GENERAR IMAGENES:
+
+./EJ5-visualiza-imagenes.m 
+
